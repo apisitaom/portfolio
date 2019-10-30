@@ -1,12 +1,13 @@
 --create extension if not exists pgcrypto;
 
 create table login (
+    loginid uuid primary key default gen_random_uuid(),
     email varchar(60),
     password varchar(60)
 );
 
 create table owner (
-    ownerid uuid primary key, 
+    ownerid uuid primary key default gen_random_uuid(), 
     createdate timestamp default now(),
     modifydate timestamp,
     picture varchar(100),
