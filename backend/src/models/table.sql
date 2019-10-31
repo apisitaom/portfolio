@@ -30,25 +30,25 @@ create table owner (
 )
 
 create table skill (
-    skillid integer primary key,
+    skillid serial primary key,
     createdate timestamp default now(),
     skills json
 );
 
 create table language (
-    languageid integer primary key,
+    languageid serial primary key,
     createdate timestamp default now(),
     language json
 );
 
 create table result (
-    resultid integer primary key,
+    resultid serial primary key,
     createdate timestamp default now(),
     result json
 );
 
 create table album (
-    albumid integer primary key,
+    albumid serial primary key,
     createdate timestamp default now(),
     album text []
 );
