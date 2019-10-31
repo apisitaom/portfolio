@@ -1,6 +1,6 @@
 module.exports = {
-    params: 'params is not match',
     server: 'server error',
+    params: 'params is not match',
     email: 'email already exit',
     photo: 'invalid picture',
     token: 'invalid token'

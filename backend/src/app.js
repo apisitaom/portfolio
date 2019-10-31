@@ -5,6 +5,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const albumRoute = require('./routes/album');
+const languageRoute = require('./routes/language');
+const loginRoute = require('./routes/login');
+const ownerRoute = require('./routes/owner');
+const resultRoute = require('./routes/result');
+const skillRoute = require('./routes/skill');
 
 const app = express();
 const port = process.env.PORT || 4001
@@ -15,6 +20,11 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static('public'));
 
 app.use('/album', albumRoute);
+app.use('/language', languageRoute);
+app.use('/login', loginRoute);
+app.use('/owner', ownerRoute);
+app.use('/result', resultRoute);
+app.use('/skill', skillRoute);
 
 app.use((req, res, next) => {
     console.log(`server on path ${req.ip} ${req.method} ${req.path}`);
