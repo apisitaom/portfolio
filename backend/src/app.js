@@ -33,7 +33,6 @@ app.use((req, res, next) => {
 
 app.use('/images', express.static(path.join(__dirname + '/../public/images')));
 
-
 app.get(`/`, (req, res) => {
     res.json({ info : `Web site portfolio get start on port: ${port}`});
 });

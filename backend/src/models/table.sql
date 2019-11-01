@@ -49,6 +49,8 @@ create table result (
 
 create table album (
     albumid serial primary key,
+    modifydate timestamp,
     createdate timestamp default now(),
-    album text []
+    album text [],
+    detail varchar(100)
 );

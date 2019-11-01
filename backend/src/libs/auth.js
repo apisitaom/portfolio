@@ -25,5 +25,5 @@ async function loginVerifyToken(req, res, next) {
     }
 }
 
-module.exports = loginVerifyToken;
+module.exports = { loginVerifyToken };
 

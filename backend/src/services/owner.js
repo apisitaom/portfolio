@@ -6,9 +6,9 @@ const moment = require('moment');
 
 async function add(req, res, next) {
     const { name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other } = req.body;
-    // if( !name  || !phonnumber  || !address  || !subdistrict  || !district  || !provicne  || !zipcode  || !facebook  || !github  || !gitlab  || !okta  || !age  || !gender  || !birthday  || !education  || !other ) {
-    //     return responces.error(res, errors.params);
-    // }    
+    if( !name  || !phonnumber  || !address  || !subdistrict  || !district  || !provicne  || !zipcode  || !facebook  || !github  || !gitlab  || !okta  || !age  || !gender  || !birthday  || !education  || !other ) {
+        return responces.error(res, errors.params);
+    }    
     const sql = `insert into 
     owner 
     (picture, name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other)
@@ -33,15 +33,15 @@ async function add(req, res, next) {
 
 async function edit(req, res, next) {
     const { name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other } = req.body;
-    // if( !name  || !phonnumber  || !address  || !subdistrict  || !district  || !provicne  || !zipcode  || !facebook  || !github  || !gitlab  || !okta  || !age  || !gender  || !birthday  || !education  || !other ) {
-    //     return responces.error(res, errors.params);
-    // }   
+    if( !name  || !phonnumber  || !address  || !subdistrict  || !district  || !provicne  || !zipcode  || !facebook  || !github  || !gitlab  || !okta  || !age  || !gender  || !birthday  || !education  || !other ) {
+        return responces.error(res, errors.params);
+    }   
     const date = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
     const sql = `update 
     owner 
     set name = $1, phonnumber = $2, address = $3, subdistrict = $4, district = $5, provicne = $6, zipcode = $7, facebook = $8, github = $9, gitlab = $10, okta = $11, age = $12, gender = $13, birthday = $14, education = $15, other = $16, picture = $17, modifydate = $18 
     where ownerid = $19`
-    const values = [ name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, req.files[0].filename, date,'insert ownerid here']
+    const values = [ name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, req.files[0].filename, date, req.params.id]
     const sqlnopicture = `update 
     owner 
     set name = $1, phonnumber = $2, address = $3, subdistrict = $4, district = $5, provicne = $6, zipcode = $7, facebook = $8, github = $9, gitlab = $10, okta = $11, age = $12, gender = $13, birthday = $14, education = $15, other = $16, modifydate = $17 
