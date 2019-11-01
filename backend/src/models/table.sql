@@ -32,19 +32,19 @@ create table owner (
 create table skill (
     skillid serial primary key,
     createdate timestamp default now(),
-    skills json
+    skills varchar(70)
 );
 
 create table language (
     languageid serial primary key,
     createdate timestamp default now(),
-    language json
+    language varchar(70)
 );
 
 create table result (
     resultid serial primary key,
     createdate timestamp default now(),
-    result json
+    result varchar(70)
 );
 
 create table album (

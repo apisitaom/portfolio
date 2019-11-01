@@ -45,4 +45,14 @@ async function edit(req, res, next) {
     }
 }
 
-module.exports = { add, edit };
+async function lists(req, res, next) {
+    const sql = `select albumid, createdate, album, detail from album`
+    try {
+        const { rows } = await db.query(sql);
+        return responces.success(res, success.success, rows);
+    } catch (error) {
+        return responces.error(res, errors.server);
+    }
+}
+
+module.exports = { add, edit, lists };
