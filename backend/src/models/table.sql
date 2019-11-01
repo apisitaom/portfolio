@@ -32,18 +32,21 @@ create table owner (
 create table skill (
     skillid serial primary key,
     createdate timestamp default now(),
+    title varchar(30),
     skills varchar(70)
 );
 
 create table language (
     languageid serial primary key,
     createdate timestamp default now(),
+    title varchar(30),
     language varchar(70)
 );
 
 create table result (
     resultid serial primary key,
     createdate timestamp default now(),
+    title varchar(30),
     result varchar(70)
 );
 

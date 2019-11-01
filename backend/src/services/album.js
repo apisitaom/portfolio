@@ -30,7 +30,7 @@ async function edit(req, res, next) {
     const picture = [];
     picture.push(data);
     const date = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
-    const sql = `insert into album set album = $1, modifydate = $2, detail = $3 where albumid = $4`
+    const sql = `update album set album = $1, modifydate = $2, detail = $3 where albumid = $4`
     const values= [ picture, date, detail, req.params.id ]
     try {
         if(req.files[0] !== undefined) {
@@ -39,14 +39,14 @@ async function edit(req, res, next) {
         if(req.files[0] === undefined) {
             return responces.error(res, errors.photo);
         }
-        return responces.success(res, success.success);
+        return responces.success(res, success.updated);
     } catch (error) {
         return responces.error(res, errors.server);
     }
 }
 
 async function lists(req, res, next) {
-    const sql = `select albumid, createdate, album, detail from album`
+    const sql = `select albumid, createdate, album, detail from album order by createdate asc`
     try {
         const { rows } = await db.query(sql);
         return responces.success(res, success.success, rows);
@@ -55,4 +55,14 @@ async function lists(req, res, next) {
     }
 }
 
-module.exports = { add, edit, lists };
+async function deleted(req, res, next) {
+    const sql = `delete from album where albumid = $1`
+    try {
+        db.query(sql, [req.params.id]);
+        return responces.success(res, success.deleted);
+    } catch (error) {
+        return responces.error(res, errors.server);
+    }
+}
+
+module.exports = { add, edit, lists, deleted };
