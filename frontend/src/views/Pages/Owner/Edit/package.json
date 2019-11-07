@@ -1,0 +1,7 @@
+{
+    "name": "OwnerEdit",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./OwnerEdit.js"
+  }
+  

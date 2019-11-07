@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Edit extends Component {
+export default class AlbumAdd extends Component {
     render() {
         return (
             <div>
-                <h1>Edit</h1>
+                <h1>AlbumAdd</h1>
             </div>
         )
     }

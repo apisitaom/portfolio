@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 
-export default class Add extends Component {
+export default class Owner extends Component {
+    state={}
     render() {
         return (
             <div>
-                <h1>Add</h1>
+                <h1>Owner</h1>
             </div>
         )
     }
