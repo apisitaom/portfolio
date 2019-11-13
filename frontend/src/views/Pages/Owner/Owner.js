@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'antd'
-import OwnerFrom from '../../../froms/owner/OwnerFrom'
+import OwnerImgFrom from '../../../froms/owner/OwnerImgFrom'
+import OwnerListFrom from '../../../froms/owner/OwnerListFrom'
 import TabFrom from '../../../froms/nav/TabFrom'  // Header Tabs
 export default class Owner extends Component {
     state={}
@@ -8,22 +9,24 @@ export default class Owner extends Component {
     render() {
         return (
             <div>
-              <Row>
-                  <Col span={24}>
-                      <h1>Col 1</h1>
-                  </Col>
-                  <Col span={6}>
-                      <OwnerFrom />
-                  </Col>
-                  <Col offset={2} span={16}>
-                      <h1>Col 2</h1>
-                  </Col>
-              </Row>
-              <Row>
-                  <Col offset={2} span={20} style={{textAlign: 'center'}}>
-                      <h1>Col 3</h1>
-                  </Col>
-              </Row>
+                <Row>
+                    <Col span={24}>
+                      <TabFrom />
+                    </Col>   
+                </Row>
+                <Row style={{padding: '12px'}}> 
+                    <Col span={6}>
+                        <OwnerImgFrom />
+                    </Col>
+                    <Col span={18}>
+                        <OwnerListFrom />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col offset={2} span={20} style={{textAlign: 'center'}}>
+                        <h1>Col 3</h1>
+                    </Col>
+                </Row>
             </div>
         )
     }
