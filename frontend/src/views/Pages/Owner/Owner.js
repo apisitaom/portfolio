@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'antd'
 import OwnerFrom from '../../../froms/owner/OwnerFrom'
+import TabFrom from '../../../froms/nav/TabFrom'  // Header Tabs
 export default class Owner extends Component {
     state={}
     UNSAFE_componentWillMount(){}

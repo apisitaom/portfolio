@@ -6,7 +6,7 @@ export default class OwnerFrom extends Component {
         return (
             <div>
                 <Col>
-                   <Image  style={{width: '60%', height: 'auto'}} src={profile} roundedCircle />
+                   <Image style={{width:'60%', height:'auto'}} src={profile} roundedCircle />
                 </Col>
             </div>
         )
