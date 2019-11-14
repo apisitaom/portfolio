@@ -21,9 +21,6 @@ export default class TabFrom extends Component {
                     </Nav>
                     <Nav>
                       <Nav.Link href="#">  <Button variant="outline-warning">EDIT PROFILE</Button></Nav.Link> 
-                      <Nav.Link eventKey={2} href="#">
-                        <Button variant="outline-dark">LOG OUT</Button>
-                      </Nav.Link>
                     </Nav>
                   </Navbar.Collapse>
                 </Navbar>

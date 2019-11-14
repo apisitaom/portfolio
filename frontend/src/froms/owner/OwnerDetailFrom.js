@@ -1,26 +1,10 @@
 import React, { Component } from 'react'
-import { Card, Row, Col } from 'antd'
-export default class OwnerListFrom extends Component {
+
+export default class OwnerDetailFrom extends Component {
     render() {
-        const gridStyle = {
-            width: '25%',
-            textAlign: 'center',
-          };
         return (
             <div>
-                <Row>
-                    <Col>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                    </Col>
-                </Row>
-                <h5>A mobile phone, cell phone, cellphone, or hand phone, sometimes shortened to simply mobile, cell or just phone,
+                 <h5>A mobile phone, cell phone, cellphone, or hand phone, sometimes shortened to simply mobile, cell or just phone,
                     is a portable telephone that can make and receive calls over a radio frequency link while the user is moving within 
                     a telephone service area. The radio frequency link establishes a connection to the switching systems of a mobile 
                     phone operator, which provides access to the public switched telephone network (PSTN). Modern mobile telephone services 
