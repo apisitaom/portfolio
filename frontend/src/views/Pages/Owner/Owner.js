@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { Row, Col } from 'antd'
 import OwnerImgFrom from '../../../froms/owner/OwnerImgFrom'
 import OwnerListFrom from '../../../froms/owner/OwnerListFrom'
-import TabFrom from '../../../froms/nav/TabFrom'  // Header Tabs
+import TabFrom from '../../../froms/nav/TabFrom' 
 export default class Owner extends Component {
     state={}
     UNSAFE_componentWillMount(){}
     render() {
         return (
-            <div>
+            <div className="body">
                 <Row>
                     <Col span={24}>
                       <TabFrom />

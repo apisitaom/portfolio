@@ -5,12 +5,12 @@ export default class TabFrom extends Component {
         return (
             <div>
                 <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-                  <Navbar.Brand href="#/"> ABOUT MY SELF </Navbar.Brand>
+                  <Navbar.Brand href="#/"> ABOUT ME</Navbar.Brand>
                   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                   <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                       <Nav.Link href="#">PHOTOS</Nav.Link>
-                      <Nav.Link href="#">CONTACT</Nav.Link>
+                      <Nav.Link href="#">MESSAGE</Nav.Link>
                       <NavDropdown title="SOCIAL MEDIA" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="https://github.com/apisitaom">Git Hub</NavDropdown.Item>
                         <NavDropdown.Item href="https://web.facebook.com/apisit.prompha">Facebook</NavDropdown.Item>
