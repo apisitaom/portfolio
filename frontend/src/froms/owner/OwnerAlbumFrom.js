@@ -1,19 +1,67 @@
 import React, { Component } from 'react'
-
+import { List, Avatar, Icon } from 'antd';
 export default class OwnerAlbumFrom extends Component {
     render() {
+    const listData = [];
+        for (let i = 0; i < 23; i++) {
+          listData.push({
+            href: 'http://ant.design',
+            title: `ant design part ${i}`,
+            avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            description:
+              'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+            content:
+              'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+          });
+        }
+        const IconText = ({ type, text }) => (
+            <span>
+              <Icon type={type} style={{ marginRight: 8 }} />
+              {text}
+            </span>
+          );          
         return (
             <div>
-                <h5>A mobile phone, cell phone, cellphone, or hand phone, sometimes shortened to simply mobile, cell or just phone,
-                    is a portable telephone that can make and receive calls over a radio frequency link while the user is moving within 
-                    a telephone service area. The radio frequency link establishes a connection to the switching systems of a mobile 
-                    phone operator, which provides access to the public switched telephone network (PSTN). Modern mobile telephone services 
-                    use a cellular network architecture, and, therefore, mobile telephones are called cellular telephones or cell phones,
-                    in North America. In addition to telephony, 2000s-era mobile phones support a variety of other services, such as text 
-                    video games, and digital photography. Mobile phones offering only those capabilities are known as feature phones; mobile phones 
-                    messaging, MMS, email, Internet access, short-range wireless communications (infrared, Bluetooth), business applications, 
-                    which offer greatly advanced computing capabilities are referred to as smartphones.
-                </h5>
+                <List
+    itemLayout="vertical"
+    size="large"
+    pagination={{
+      onChange: page => {
+        console.log(page);
+      },
+      pageSize: 3,
+    }}
+    dataSource={listData}
+    footer={
+      <div>
+        <b>ant design</b> footer part
+      </div>
+    }
+    renderItem={item => (
+      <List.Item
+        key={item.title}
+        actions={[
+          <IconText type="star-o" text="156" key="list-vertical-star-o" />,
+          <IconText type="like-o" text="156" key="list-vertical-like-o" />,
+          <IconText type="message" text="2" key="list-vertical-message" />,
+        ]}
+        extra={
+          <img
+            width={272}
+            alt="logo"
+            src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+          />
+        }
+      >
+        <List.Item.Meta
+          avatar={<Avatar src={item.avatar} />}
+          title={<a href={item.href}>{item.title}</a>}
+          description={item.description}
+        />
+        {item.content}
+      </List.Item>
+    )}
+  />
             </div>
         )
     }

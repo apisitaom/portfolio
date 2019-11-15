@@ -4,7 +4,6 @@ import OwnerImgFrom from '../../../froms/owner/OwnerImgFrom'
 import OwnerListFrom from '../../../froms/owner/OwnerListFrom'
 import TabFrom from '../../../froms/nav/TabFrom' 
 import OwnerDetailFrom from '../../../froms/owner/OwnerDetailFrom'
-import OwnerAlbumFrom from '../../../froms/owner/OwnerAlbumFrom'
 export default class Owner extends Component {
     state={}
     UNSAFE_componentWillMount(){}
@@ -24,14 +23,9 @@ export default class Owner extends Component {
                         <OwnerListFrom />
                     </Col>
                 </Row>
-                <Row>
-                    <Col offset={2} span={20} style={{textAlign: 'center'}}>
+                <Row style={{paddingTop: '160px'}}>
+                    <Col span={24}>
                         <OwnerDetailFrom />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col offset={2} span={20} style={{textAlign: 'center'}}>
-                        <OwnerAlbumFrom />
                     </Col>
                 </Row>
             </div>

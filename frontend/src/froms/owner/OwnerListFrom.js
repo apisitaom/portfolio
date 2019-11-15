@@ -29,14 +29,14 @@ export default class OwnerListFrom extends Component {
                     </Col>
                     <Col style={paddingStype}>
                         <Card.Grid style={gridStyle}>MY RESUME</Card.Grid>
-                        <Card.Grid style={gridStyle}>MY SKILLS</Card.Grid>
-                        <Card.Grid style={gridStyle}>MY WOKER</Card.Grid>
+                        <Card.Grid style={gridStyle}>SKILLS</Card.Grid>
+                        <Card.Grid style={gridStyle}>PRODUCTS</Card.Grid>
                     </Col>
                     <Col offset={2} span={20} style={paddingStype}>
                         <h5>
                             Hello, My name is apisit Prompha but you can call me "Aom" 
-                            I enjoy to improve and interest web application/mobile application I'm also interest Stock of Thailand, property, Cryptocurrency
-
+                            I enjoy to improve and interest to build web application/mobile application 
+                            I'm also interest Stock of Thailand, property and Cryptocurrency
                         </h5>
                     </Col>
                 </Row>

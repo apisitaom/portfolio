@@ -1,19 +1,39 @@
 import React, { Component } from 'react'
-
+import { Row, Col, Icon, Divider } from 'antd'
 export default class OwnerDetailFrom extends Component {
     render() {
+        const IconFont = Icon.createFromIconfontCN({
+            scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
+          });
+        const iconStype = {
+            fontSize: '300%',
+            paddingLeft: '1%'
+        }
         return (
             <div>
-                 <h5>A mobile phone, cell phone, cellphone, or hand phone, sometimes shortened to simply mobile, cell or just phone,
-                    is a portable telephone that can make and receive calls over a radio frequency link while the user is moving within 
-                    a telephone service area. The radio frequency link establishes a connection to the switching systems of a mobile 
-                    phone operator, which provides access to the public switched telephone network (PSTN). Modern mobile telephone services 
-                    use a cellular network architecture, and, therefore, mobile telephones are called cellular telephones or cell phones,
-                    in North America. In addition to telephony, 2000s-era mobile phones support a variety of other services, such as text 
-                    messaging, MMS, email, Internet access, short-range wireless communications (infrared, Bluetooth), business applications, 
-                    video games, and digital photography. Mobile phones offering only those capabilities are known as feature phones; mobile phones 
-                    which offer greatly advanced computing capabilities are referred to as smartphones.
-                </h5>
+                <Row style={{backgroundColor: 'white'}}>
+                    <Col offset={4} span={16} style={{padding: '10px'}}> 
+                        <Icon style={iconStype} type="github" />
+                        <Divider type="vertical" />
+                        apisitaom
+                        <IconFont style={iconStype} type="icon-facebook" />
+                        <Divider type="vertical" />
+                        Aom Apisit
+                        <Icon style={iconStype} type="wechat" />
+                        <Divider type="vertical" />
+                        apisitprompha@gmail.com
+                        <Icon style={iconStype} type="phone" />
+                        <Divider type="vertical" />
+                        0933347977
+                        <Icon style={iconStype} type="instagram" />
+                        <Divider type="vertical" />
+                        apisitaom21
+                        <Icon style={iconStype} type="smile" />
+                        <Divider type="vertical" />
+                        ThankYou So Much
+                        <Icon style={iconStype} type="more" />
+                    </Col>
+                </Row>
             </div>
         )
     }
