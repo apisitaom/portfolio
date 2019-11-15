@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap'
+import { Divider } from 'antd' 
 export default class TabFrom extends Component {
     render() {
         return (
             <div>
                 <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-                  <Navbar.Brand href="#/"> ABOUT ME</Navbar.Brand>
+                  <Navbar.Brand href="#/">OWH I AM</Navbar.Brand>
+                  <Divider type="vertical" />
                   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                   <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
@@ -20,7 +22,7 @@ export default class TabFrom extends Component {
                       </NavDropdown>
                     </Nav>
                     <Nav>
-                      <Nav.Link href="#">  <Button variant="outline-warning">EDIT PROFILE</Button></Nav.Link> 
+                      <Nav.Link href="#login">  <Button variant="outline-warning">EDIT</Button></Nav.Link> 
                     </Nav>
                   </Navbar.Collapse>
                 </Navbar>

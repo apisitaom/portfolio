@@ -3,33 +3,43 @@ import { Card, Row, Col } from 'antd'
 export default class OwnerListFrom extends Component {
     render() {
         const gridStyle = {
-            width: '25%',
+            width: '30%',
             textAlign: 'center',
+            margin: '5px',
+            color: 'white'
           };
+        const textColorGrey = {
+            color: '#839192'
+        }
+        const paddingStype = {
+            paddingTop:'20px'
+        }
         return (
             <div>
                 <Row>
                     <Col>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
-                          <Card.Grid style={gridStyle}>Content</Card.Grid>
+                        <h1 style={textColorGrey}>APISIT PROMPHA</h1>
+                        <h4 style={textColorGrey}>Computer Engineering / frontend and backend developer</h4>
+                    </Col>
+                    <Col offset ={2}>
+                        <h4 style={{fontSize:'600%', color:'#839192'}}>Hello,</h4>
+                    </Col>
+                    <Col offset ={4}>
+                        <h4 style={{fontSize:'180%', color:'#839192'}}> a little bit abount me</h4>
+                    </Col>
+                    <Col style={paddingStype}>
+                        <Card.Grid style={gridStyle}>MY RESUME</Card.Grid>
+                        <Card.Grid style={gridStyle}>MY SKILLS</Card.Grid>
+                        <Card.Grid style={gridStyle}>MY WOKER</Card.Grid>
+                    </Col>
+                    <Col offset={2} span={20} style={paddingStype}>
+                        <h5>
+                            Hello, My name is apisit Prompha but you can call me "Aom" 
+                            I enjoy to improve and interest web application/mobile application I'm also interest Stock of Thailand, property, Cryptocurrency
+
+                        </h5>
                     </Col>
                 </Row>
-                <h5>A mobile phone, cell phone, cellphone, or hand phone, sometimes shortened to simply mobile, cell or just phone,
-                    is a portable telephone that can make and receive calls over a radio frequency link while the user is moving within 
-                    a telephone service area. The radio frequency link establishes a connection to the switching systems of a mobile 
-                    phone operator, which provides access to the public switched telephone network (PSTN). Modern mobile telephone services 
-                    use a cellular network architecture, and, therefore, mobile telephones are called cellular telephones or cell phones,
-                    in North America. In addition to telephony, 2000s-era mobile phones support a variety of other services, such as text 
-                    messaging, MMS, email, Internet access, short-range wireless communications (infrared, Bluetooth), business applications, 
-                    video games, and digital photography. Mobile phones offering only those capabilities are known as feature phones; mobile phones 
-                    which offer greatly advanced computing capabilities are referred to as smartphones.
-                </h5>
             </div>
         )
     }

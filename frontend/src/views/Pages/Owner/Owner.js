@@ -16,11 +16,11 @@ export default class Owner extends Component {
                       <TabFrom />
                     </Col>   
                 </Row>
-                <Row style={{padding: '12px'}}> 
-                    <Col span={6}>
+                <Row style={{padding: '50px'}}> 
+                    <Col offset={6} span={6}>
                         <OwnerImgFrom />
                     </Col>
-                    <Col span={18}>
+                    <Col span={12}>
                         <OwnerListFrom />
                     </Col>
                 </Row>
