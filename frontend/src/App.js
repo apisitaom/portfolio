@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
-const Login = React.lazy(() => import('./views/Pages/Login'))
 const Album = React.lazy(() => import('./views/Pages/Album'))
 const AlbumAdd = React.lazy(() => import('./views/Pages/Album/Add'))
 const Owner = React.lazy(() => import('./views/Pages/Owner'))
@@ -14,7 +13,6 @@ export default class App extends Component {
       <HashRouter>
         <React.Suspense fallback={loading()}>
           <Switch>                    
-            <Route exact path = '/login' name="Login Page" render={props => <Login {...props}/> } />
             <Route exact path = '/album' name="Album Page" render={props => <Album {...props}/> } />
             <Route exact path = '/album/add' name="Album Add Page" render={props => <AlbumAdd {...props}/> } />
             <Route exact path = '/' name="Owner Page" render={props => <Owner {...props}/> } />

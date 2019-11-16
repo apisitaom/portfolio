@@ -19,7 +19,6 @@ export default class TabFrom extends Component {
                   <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                       <Nav.Link href="#">PHOTOS</Nav.Link>
-                      <Nav.Link href="#">MESSAGE</Nav.Link>
                       <Nav.Link>
                         <Popover placement="bottom" title={text} content={contents} trigger="click">
                           EMAIL
