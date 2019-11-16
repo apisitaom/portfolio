@@ -9,12 +9,12 @@ export default class Login extends Component {
     UNSAFE_componentWillMount(){}
     showDrawer = () => {
       this.setState({
-        visible: true,
+        visible: true
       });
     };
     onClose = () => {
       this.setState({
-        visible: false,
+        visible: false
       });
     };
     render() {

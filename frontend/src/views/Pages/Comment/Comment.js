@@ -8,12 +8,12 @@ export default class Comment extends Component {
     }
     showDrawer = () => {
       this.setState({
-        visible: true,
+        visible: true
       });
     };
     onClose = () => {
       this.setState({
-        visible: false,
+        visible: false
       });
     };
     render() {
