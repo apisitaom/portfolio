@@ -19,7 +19,7 @@ export default class TabFrom extends Component {
                   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                   <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                      <Nav.Link href="#">PHOTOS</Nav.Link>
+                      <Nav.Link href="#photo">PHOTOS</Nav.Link>
                       <Nav.Link>
                         <Popover placement="bottom" title={text} content={contents} trigger="click">
                           EMAIL
