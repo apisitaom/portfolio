@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
-import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap'
-import { Divider } from 'antd' 
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import { Divider, Popover } from 'antd' 
+import Login from '../../views/Pages/Login/Login'
 export default class TabFrom extends Component {
     render() {
+      const text = <span>My email</span>;
+      const contents = (
+        <div>
+          <p>apisitprompha@gmail.com</p>
+        </div>
+      );
         return (
             <div>
                 <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -13,16 +20,20 @@ export default class TabFrom extends Component {
                     <Nav className="mr-auto">
                       <Nav.Link href="#">PHOTOS</Nav.Link>
                       <Nav.Link href="#">MESSAGE</Nav.Link>
+                      <Nav.Link>
+                        <Popover placement="bottom" title={text} content={contents} trigger="click">
+                          EMAIL
+                        </Popover>
+                      </Nav.Link>
                       <NavDropdown title="SOCIAL MEDIA" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="https://github.com/apisitaom">Git Hub</NavDropdown.Item>
                         <NavDropdown.Item href="https://web.facebook.com/apisit.prompha">Facebook</NavDropdown.Item>
-                        <NavDropdown.Item href="#d">Email</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#d">Feed Back</NavDropdown.Item>
+                        <NavDropdown.Item href="#d">Comment</NavDropdown.Item>
                       </NavDropdown>
                     </Nav>
                     <Nav>
-                      <Nav.Link href="#login">  <Button variant="outline-warning">EDIT</Button></Nav.Link> 
+                      <Nav.Link><Login /></Nav.Link> 
                     </Nav>
                   </Navbar.Collapse>
                 </Navbar>
