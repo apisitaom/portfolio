@@ -1,7 +1,7 @@
 {
-    "name": "Album",
+    "name": "Resume",
     "version": "0.0.0",
     "private": true,
-    "main": "./Album.js"
+    "main": "./Resume.js"
   }
   

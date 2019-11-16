@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { Divider, Popover } from 'antd' 
 import Login from '../../views/Pages/Login/Login'
+import Comment from '../../views/Pages/Comment/Comment'
 export default class TabFrom extends Component {
     render() {
       const text = <span>My email</span>;
@@ -28,7 +29,7 @@ export default class TabFrom extends Component {
                         <NavDropdown.Item href="https://github.com/apisitaom">Git Hub</NavDropdown.Item>
                         <NavDropdown.Item href="https://web.facebook.com/apisit.prompha">Facebook</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#d">Comment</NavDropdown.Item>
+                        <Comment />
                       </NavDropdown>
                     </Nav>
                     <Nav>

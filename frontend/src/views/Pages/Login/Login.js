@@ -18,7 +18,6 @@ export default class Login extends Component {
       });
     };
     render() {
-        console.log('LOGIN :', this.state);
         return (
             <div>
                 <Row>

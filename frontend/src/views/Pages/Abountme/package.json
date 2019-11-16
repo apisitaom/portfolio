@@ -1,7 +1,7 @@
 {
-    "name": "Result",
+    "name": "AbountMe",
     "version": "0.0.0",
     "private": true,
-    "main": "./Result.js"
+    "main": "./AbountMe.js"
   }
   

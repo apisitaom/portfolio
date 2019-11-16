@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 import { Card, Row, Col } from 'antd'
 export default class OwnerListFrom extends Component {
     onChangePageResult = () => {
-        window.location.assign('#result');
+        window.location.assign('#product');
+    }
+    onChangePageResume = () => {
+        window.location.assign('#resume');
+    }
+    onChangePageAbountMe = () => {
+        window.location.assign('#abountme');
     }
     render() {
         const gridStyle = {
@@ -31,8 +37,8 @@ export default class OwnerListFrom extends Component {
                         <h4 style={{fontSize:'180%', color:'#839192'}}> a little bit abount me</h4>
                     </Col>
                     <Col style={paddingStype}>
-                        <Card.Grid style={gridStyle}>MY RESUME</Card.Grid>
-                        <Card.Grid style={gridStyle}>ABOUT ME</Card.Grid>
+                        <Card.Grid style={gridStyle} onClick={() => this.onChangePageResume()} >MY RESUME</Card.Grid>
+                        <Card.Grid style={gridStyle} onClick={() => this.onChangePageAbountMe()} >ABOUT ME</Card.Grid>
                         <Card.Grid style={gridStyle} onClick={() => this.onChangePageResult()} >PRODUCTS</Card.Grid>
                     </Col>
                     <Col offset={2} span={20} style={paddingStype}>
