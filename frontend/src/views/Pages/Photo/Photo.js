@@ -7,7 +7,7 @@ export default class Photo extends Component {
             <div>
                 <TabFrom />
                 <Result
-                  status="warning"
+                  status="403"
                   title="photo doesn't have"
                 />
             </div>

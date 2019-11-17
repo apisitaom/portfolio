@@ -14,7 +14,7 @@ export default class TabFrom extends Component {
         return (
             <div>
                 <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-                  <Navbar.Brand href="#/">OWH I AM</Navbar.Brand>
+                  <Navbar.Brand href="#/">HOME</Navbar.Brand>
                   <Divider type="vertical" />
                   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                   <Navbar.Collapse id="responsive-navbar-nav">
