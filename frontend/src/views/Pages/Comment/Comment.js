@@ -40,7 +40,6 @@ export default class Comment extends Component {
                   <Col style={{paddingTop:'1.5%'}}>
                     <Button type="primary">Add Comment</Button>
                   </Col>
-                  <Divider />
                 </Drawer>
             </div>
         )
