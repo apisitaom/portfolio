@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { List, Avatar, Icon } from 'antd';
+import { List, Avatar, Icon, Col } from 'antd';
+import profile from '../../assets/img/profile.jpg'
+import star from '../../assets/img/star.png'
 export default class OwnerAlbumFrom extends Component {
     render() {
     const listData = [];
@@ -7,7 +9,7 @@ export default class OwnerAlbumFrom extends Component {
           listData.push({
             href: 'http://ant.design',
             title: `ant design part ${i}`,
-            avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            avatar: star,
             description:
               'Ant Design, a design language for background applications, is refined by Ant UED Team.',
             content:
@@ -49,8 +51,8 @@ export default class OwnerAlbumFrom extends Component {
           <img
             width={272}
             alt="logo"
-            src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-          />
+            src={profile}
+            />
         }
       >
         <List.Item.Meta
@@ -62,6 +64,8 @@ export default class OwnerAlbumFrom extends Component {
       </List.Item>
     )}
   />
+  <Col style={{paddingTop: '2.5%'}}>
+  </Col>
             </div>
         )
     }
