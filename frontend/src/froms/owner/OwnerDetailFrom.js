@@ -11,7 +11,7 @@ export default class OwnerDetailFrom extends Component {
         }
         return (
             <div>
-                <Row style={{backgroundColor: 'white'}}>
+                <Row style={{backgroundColor: 'white', textAlign: 'center'}}>
                     <Col offset={4} span={16} style={{padding: '10px'}}> 
                         <Icon style={iconStype} type="github" />
                         <Divider type="vertical" />
@@ -30,8 +30,6 @@ export default class OwnerDetailFrom extends Component {
                         apisitaom21
                         <Icon style={iconStype} type="smile" />
                         <Divider type="vertical" />
-                        ThankYou So Much
-                        <Icon style={iconStype} type="more" />
                     </Col>
                 </Row>
             </div>
