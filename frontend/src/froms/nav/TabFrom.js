@@ -33,7 +33,9 @@ export default class TabFrom extends Component {
                       </NavDropdown>
                     </Nav>
                     <Nav>
-                      <Nav.Link><Login /></Nav.Link> 
+                      <Nav.Link>
+                        <Login />
+                      </Nav.Link> 
                     </Nav>
                   </Navbar.Collapse>
                 </Navbar>

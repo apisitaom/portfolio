@@ -17,6 +17,9 @@ export default class Login extends Component {
         visible: false
       });
     };
+    onSubmit = () => {
+      window.location.assign('#owner/edit');
+    }
     render() {
         return (
             <div>
@@ -39,7 +42,13 @@ export default class Login extends Component {
                         placeholder="password"
                         />
                         <Col offset={9} style={{padding: '10px'}}>
-                        <Button variant="outline-success" size="sm">success</Button>
+                        <Button 
+                        variant="outline-success" 
+                        size="sm"
+                        onClick={() => this.onSubmit()}
+                        >
+                          success
+                        </Button>
                         </Col>
                     </Drawer>
                 </Row>
