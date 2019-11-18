@@ -28,7 +28,7 @@ export default class Resume extends Component {
                         <Tag color="green" style={{fontSize: '150%'}}>Education</Tag>
                         <p>"NYC" and "New York, New York" redirect here.
                             For other uses, see New York City (disambiguation); 
-                            NYC (disambiguation); and New York, New York (disambiguation).
+                            NYC (disambiguation); and New York, New York (disambiguation)
                         </p>
                     <Divider />
                         <Tag color="cyan" style={{fontSize: '150%'}}>Activity</Tag>
