@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Row, Col, Drawer, Input } from 'antd';
+import { Row, Col, Drawer, Input, message } from 'antd';
 import { Button } from 'react-bootstrap'
+import { login } from '../../../services/api'
 export default class Login extends Component {
     state={
         visible: false,
@@ -17,8 +18,20 @@ export default class Login extends Component {
         visible: false
       });
     };
-    onSubmit = () => {
-      window.location.assign('#owner/edit');
+    onSubmit = async () => {
+      const { email, password } = this.state
+      const data = {
+        email: email,
+        password: password
+      }
+      const resp = await login(data);
+      if (resp.code === 200) {
+        await sessionStorage.setItem("access_token", resp.token);
+        await message.success('Login success, Please wait');
+        window.location.assign('#owner/edit');
+      } else {
+        await message.error('Login failed, Please try again.');
+      }
     }
     render() {
         return (
@@ -36,10 +49,12 @@ export default class Login extends Component {
                         <p>your email</p>
                         <Input 
                         placeholder="emial"
+                        onChange={(e)=>this.setState({email: e.target.value})}
                         />
                         <p>your password</p>
-                        <Input 
+                        <Input.Password
                         placeholder="password"
+                        onChange={(e)=>this.setState({password: e.target.value})}
                         />
                         <Col offset={9} style={{padding: '10px'}}>
                         <Button 

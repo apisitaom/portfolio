@@ -48,6 +48,10 @@ export const ownerEdit = async(data) => {
     const res = await Fetch("POST", '', '/owner/edit', data)
     return res
 }
+export const ownerAll = async (data, token = "") => {
+    const res = await Fetch("GET", token, `/owner/lists`, data);
+    return res;
+};
 //------------------ RESULT -------------------
 export const resultAdd = async(data) => {
     const res = await Fetch("POST", '', '/result/add', data)
