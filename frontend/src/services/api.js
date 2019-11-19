@@ -82,3 +82,38 @@ export const skillDeleted = async (data, token = "") => {
     const res = await Fetch("DELETE", token, `/skill/deleted`, data);
     return res;
 };
+//------------------ ABOUTME -------------------
+export const aboutmeAdd = async(data) => {
+    const res = await Fetch("POST", '', '/aboutme/add', data)
+    return res
+}
+export const aboutmeEdit = async(data) => {
+    const res = await Fetch("POST", '', '/aboutme/edit', data)
+    return res
+}
+export const aboutmeAll = async (data, token = "") => {
+    const res = await Fetch("GET", token, `/aboutme/lists`, data);
+    return res;
+};
+//------------------ RESUME -------------------
+export const resumemeAdd = async(data) => {
+    const res = await Fetch("POST", '', '/resume/add', data)
+    return res
+}
+export const resumemeEdit = async(data) => {
+    const res = await Fetch("POST", '', '/resume/edit', data)
+    return res
+}
+export const resumemeAll = async (data, token = "") => {
+    const res = await Fetch("GET", token, `/resume/lists`, data);
+    return res;
+};
+//------------------ COMMENT -------------------
+export const commentAdd = async(data) => {
+    const res = await Fetch("POST", '', '/comment/add', data)
+    return res
+}
+export const commentAll = async (data, token = "") => {
+    const res = await Fetch("GET", token, `/comment/lists`, data);
+    return res;
+};

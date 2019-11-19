@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col, Input, Tag, Button } from 'antd'
+const { TextArea } = Input
 export default class OwnerEditFrom extends Component {
     render() {
         return (
@@ -64,7 +65,7 @@ export default class OwnerEditFrom extends Component {
                             placeholder="birthday"
                             />
                             <Tag color="cyan">Other</Tag>
-                            <Input 
+                            <TextArea 
                             placeholder="other"
                             />
                             <Button type="primary">

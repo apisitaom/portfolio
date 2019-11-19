@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col, Button, Tag, Input } from 'antd'
+const { TextArea } = Input
 export default class SkillFrom extends Component {
     render() {
         return (
@@ -8,11 +9,11 @@ export default class SkillFrom extends Component {
                 <h1>SKILLS</h1>
                     <Col offset={4} span={16} style={{paddingBottom: '0.5%'}}>
                         <Tag color="cyan">Skills</Tag>
-                        <Input 
+                        <TextArea 
                         placeholder="skill"
                         />
                         <Button type="primary">
-                            Add Skill
+                            Edit Skill
                         </Button>
                     </Col>
                 </Row>
