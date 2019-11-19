@@ -3,6 +3,7 @@ const owner = require('../services/owner');
 const img = require('../libs/imageupload');
 
 router.get('/', (req, res) => {res.json({ info : `owner route`})});
+router.get('/lists', owner.lists);
 
 router.post('/add',img.upload, owner.add);
 router.post('/edit/:id',img.upload, owner.edit);
