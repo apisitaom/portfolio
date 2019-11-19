@@ -7,7 +7,6 @@ export default class Login extends Component {
         visible: false,
         placement: 'right'
     }
-    UNSAFE_componentWillMount(){}
     showDrawer = () => {
       this.setState({
         visible: true
