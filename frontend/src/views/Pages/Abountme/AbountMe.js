@@ -1,8 +1,31 @@
 import React, { Component } from 'react'
 import { Row, Col, Divider, Tag } from 'antd'
 import TabFrom from '../../../froms/nav/TabFrom' 
+import { aboutmeAll } from '../../../services/api'
 export default class AbountMe extends Component {
+    state={
+        aboutme: null,
+        address: null,
+        family: null,
+        hobby: null,
+        interest: null
+    }
+    UNSAFE_componentWillMount () {
+        this.onGetAboutMe();
+    }
+    onGetAboutMe = async () => {
+        const resp = await aboutmeAll();
+        this.setState({
+            aboutme: resp.data[0].aboutme,
+            address: resp.data[0].address,
+            family: resp.data[0].family,
+            hobby: resp.data[0].hobby,
+            interest: resp.data[0].interest
+        })
+    }
     render() {
+        console.log('State :', this.state.aboutme);
+        
         return (
             <div>
                 <Row>
@@ -14,35 +37,20 @@ export default class AbountMe extends Component {
                     <Col offset={8} span={8}><p style={{fontSize: '450%'}}>ABOUT ME</p></Col>
                     <Col offset={8} span={8}> 
                     <Tag color="#2db7f5" style={{fontSize: '150%'}}>About me</Tag>
-                        <p>"NYC" and "New York, New York" redirect here.
-                            For other uses, see New York City (disambiguation); 
-                            NYC (disambiguation); and New York, New York (disambiguation).
-                        </p>
+                        <p>{this.state.aboutme}</p>
                     <Divider /> 
 
                     <Tag color="#2db7f5" style={{fontSize: '150%'}}>Hobby / Free time</Tag>
-                        <p>"NYC" and "New York, New York" redirect here.
-                            For other uses, see New York City (disambiguation); 
-                            NYC (disambiguation); and New York, New York (disambiguation).
-                        </p>
+                        <p>{this.state.hobby}</p>
                     <Divider />   
                     <Tag color="#2db7f5" style={{fontSize: '150%'}}>Interest</Tag>
-                        <p>"NYC" and "New York, New York" redirect here.
-                            For other uses, see New York City (disambiguation); 
-                            NYC (disambiguation); and New York, New York (disambiguation).
-                        </p>
+                        <p>{this.state.interest}</p>
                     <Divider />   
                     <Tag color="#2db7f5" style={{fontSize: '150%'}}>Family</Tag>
-                        <p>"NYC" and "New York, New York" redirect here.
-                            For other uses, see New York City (disambiguation); 
-                            NYC (disambiguation); and New York, New York (disambiguation).
-                        </p>
+                        <p>{this.state.family}</p>
                     <Divider />  
                     <Tag color="#2db7f5" style={{fontSize: '150%'}}>Address</Tag>
-                        <p>"NYC" and "New York, New York" redirect here.
-                            For other uses, see New York City (disambiguation); 
-                            NYC (disambiguation); and New York, New York (disambiguation).
-                        </p>
+                        <p>{this.state.address}</p>
                     </Col>
                 </Row>
             </div>
