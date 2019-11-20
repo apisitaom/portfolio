@@ -45,7 +45,7 @@ export const ownerAdd = async(data) => {
     return res
 }
 export const ownerEdit = async(data) => {
-    const res = await Fetch("POST", '', '/owner/edit', data)
+    const res = await Fetch("POST", '', `/owner/edit/${data.id}`, data)
     return res
 }
 export const ownerAll = async (data, token = "") => {
@@ -92,7 +92,7 @@ export const aboutmeAdd = async(data) => {
     return res
 }
 export const aboutmeEdit = async(data) => {
-    const res = await Fetch("POST", '', '/aboutme/edit', data)
+    const res = await Fetch("POST", '', `/aboutme/edit/${data.id}`, data)
     return res
 }
 export const aboutmeAll = async (data, token = "") => {
