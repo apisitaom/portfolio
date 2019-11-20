@@ -4,11 +4,11 @@ import TabFrom from '../../../froms/nav/TabFrom'
 import { aboutmeAll } from '../../../services/api'
 export default class AbountMe extends Component {
     state={
-        aboutme: null,
-        address: null,
-        family: null,
-        hobby: null,
-        interest: null
+        aboutme: 'NOT HAVE',
+        address: 'NOT HAVE',
+        family: 'NOT HAVE',
+        hobby: 'NOT HAVE',
+        interest: 'NOT HAVE'
     }
     UNSAFE_componentWillMount () {
         this.onGetAboutMe();
@@ -21,11 +21,8 @@ export default class AbountMe extends Component {
             family: resp.data[0].family,
             hobby: resp.data[0].hobby,
             interest: resp.data[0].interest
-        })
-    }
+        })}
     render() {
-        console.log('State :', this.state.aboutme);
-        
         return (
             <div>
                 <Row>
