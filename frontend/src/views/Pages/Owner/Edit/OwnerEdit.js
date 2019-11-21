@@ -6,7 +6,7 @@ import AboutMeFrom from '../../../../froms/owner/edit/AboutMeFrom'
 import ResumeFrom from '../../../../froms/owner/edit/ResumeFrom'
 import SkillFrom from '../../../../froms/owner/edit/SkillFrom'
 import LanguageFrom from '../../../../froms/owner/edit/LanguageFrom'
-import { ownerEdit, aboutmeEdit, resumemeEdit } from '../../../../services/api'
+import { ownerEdit, aboutmeEdit, resumemeEdit, skillEdit } from '../../../../services/api'
 export default class OwnerEdit extends Component {
     state={
     }
@@ -19,6 +19,11 @@ export default class OwnerEdit extends Component {
     }
     onEditResume = async (data) => {   
         await resumemeEdit(data);     
+    }
+    onEditSkill = async (data) => {
+        console.log('API :',data);
+        
+        await skillEdit(data);
     }
     render() {
         return (
@@ -38,7 +43,9 @@ export default class OwnerEdit extends Component {
                     editResume={this.onEditResume}
                     />
                         <Divider />
-                    <SkillFrom />
+                    <SkillFrom 
+                    editSkill={this.onEditSkill}
+                    />
                         <Divider />
                     <LanguageFrom />
                         <Divider />

@@ -75,7 +75,7 @@ export const skillAdd = async(data) => {
     return res
 }
 export const skillEdit = async(data) => {
-    const res = await Fetch("POST", '', '/skill/edit', data)
+    const res = await Fetch("POST", '', `/skill/edit/${data.id}`, data)
     return res
 }
 export const skillAll = async (data, token = "") => {
