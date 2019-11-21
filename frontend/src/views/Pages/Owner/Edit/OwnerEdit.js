@@ -6,10 +6,8 @@ import AboutMeFrom from '../../../../froms/owner/edit/AboutMeFrom'
 import ResumeFrom from '../../../../froms/owner/edit/ResumeFrom'
 import SkillFrom from '../../../../froms/owner/edit/SkillFrom'
 import LanguageFrom from '../../../../froms/owner/edit/LanguageFrom'
-import { ownerEdit, aboutmeEdit, resumemeEdit, skillEdit } from '../../../../services/api'
+import { ownerEdit, aboutmeEdit, resumemeEdit, skillEdit, languageEdit } from '../../../../services/api'
 export default class OwnerEdit extends Component {
-    state={
-    }
     UNSAFE_componentWillMount () {}
     onEditOwner = async (data) => {
         await ownerEdit(data); 
@@ -21,9 +19,10 @@ export default class OwnerEdit extends Component {
         await resumemeEdit(data);     
     }
     onEditSkill = async (data) => {
-        console.log('API :',data);
-        
         await skillEdit(data);
+    }
+    onEditLanguage = async (data) => {
+        await languageEdit(data);  
     }
     render() {
         return (
@@ -47,7 +46,9 @@ export default class OwnerEdit extends Component {
                     editSkill={this.onEditSkill}
                     />
                         <Divider />
-                    <LanguageFrom />
+                    <LanguageFrom 
+                    editLanguage={this.onEditLanguage}
+                    />
                         <Divider />
                     </Col>
                 </Row>

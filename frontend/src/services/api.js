@@ -28,7 +28,7 @@ export const languageAdd = async(data) => {
     return res
 }
 export const languageEdit = async(data) => {
-    const res = await Fetch("POST", '', '/language/edit', data)
+    const res = await Fetch("POST", '', `/language/edit/${data.id}`, data)
     return res
 }
 export const languageAll = async (data, token = "") => {
