@@ -105,7 +105,7 @@ export const resumemeAdd = async(data) => {
     return res
 }
 export const resumemeEdit = async(data) => {
-    const res = await Fetch("POST", '', '/resume/edit', data)
+    const res = await Fetch("POST", '', `/resume/edit/${data.id}`, data)
     return res
 }
 export const resumemeAll = async (data, token = "") => {
