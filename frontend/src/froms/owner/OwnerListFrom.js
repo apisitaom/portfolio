@@ -1,6 +1,23 @@
 import React, { Component } from 'react'
 import { Card, Row, Col } from 'antd'
+import { ownerAll } from '../../services/api'
 export default class OwnerListFrom extends Component {
+    state = {
+        name: 'NOT HAVE',
+        text: 'NOT HAVE',
+        other: 'NOT HAVE'
+    }
+    UNSAFE_componentWillMount () {
+        this.onGetOwner();
+    }
+    onGetOwner = async () => {
+        const resp = await ownerAll();
+        this.setState({
+            name: resp.data[0].name,
+            text: resp.data[0].text,
+            other: resp.data[0].other
+        })        
+    }
     onChangePageResult = () => {
         window.location.assign('#product');
     }
@@ -27,8 +44,8 @@ export default class OwnerListFrom extends Component {
             <div>
                 <Row>
                     <Col>
-                        <h1 style={textColorGrey}>APISIT PROMPHA</h1>
-                        <h4 style={textColorGrey}>Computer Engineering / frontend and backend developer</h4>
+                        <h1 style={textColorGrey}>{this.state.name}</h1>
+                        <h4 style={textColorGrey}>{this.state.text}</h4>
                     </Col>
                     <Col offset ={2}>
                         <h4 style={{fontSize:'600%', color:'#839192'}}>Hello,</h4>
@@ -42,11 +59,7 @@ export default class OwnerListFrom extends Component {
                         <Card.Grid style={gridStyle} onClick={() => this.onChangePageResult()} >PRODUCTS</Card.Grid>
                     </Col>
                     <Col offset={2} span={20} style={paddingStype}>
-                        <h5>
-                            Hello, My name is apisit Prompha but you can call me "Aom" 
-                            I enjoy to improve and interest to build web application/mobile application 
-                            I'm also interest Stock of Thailand, property and Cryptocurrency
-                        </h5>
+                        <h5>{this.state.other}</h5>
                     </Col>
                 </Row>
             </div>
