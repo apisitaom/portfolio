@@ -82,112 +82,96 @@ export default class OwnerEditFrom extends Component {
                         <Col offset={4} span={16} style={{paddingBottom: '0.5%'}}>
                             <Tag color="cyan">Name</Tag>
                             <Input 
-                            placeholder="name"
                             name="name"
                             value={this.state.name}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Phone Number</Tag>
                             <Input 
-                            placeholder="phone number"
                             name="phonnumber"
                             value={this.state.phonnumber}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Address</Tag>
                             <Input 
-                            placeholder="address"
                             name="address"
                             value={this.state.address}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Subdistrict</Tag>
                             <Input 
-                            placeholder="subdistrict"
                             name="subdistrict"
                             value={this.state.subdistrict}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">District</Tag>
                             <Input 
-                            placeholder="district"
                             name="district"
                             value={this.state.district}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Provicne</Tag>
                             <Input 
-                            placeholder="provicne"
                             name="provicne"
                             value={this.state.provicne}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Zipcode</Tag>
                             <Input 
-                            placeholder="zipcode"
                             name="zipcode"
                             value={this.state.zipcode}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Facebook</Tag>
                             <Input 
-                            placeholder="facebook"
                             name="facebook"
                             value={this.state.facebook}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Github</Tag>
                             <Input 
-                            placeholder="github"
                             name="github"
                             value={this.state.github}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Gitlab</Tag>
                             <Input 
-                            placeholder="gitlab"
                             name="gitlab"
                             value={this.state.gitlab}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Okta</Tag>
                             <Input 
-                            placeholder="okta"
                             name="okta"
                             value={this.state.okta}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Age</Tag>
                             <Input 
-                            placeholder="age"
                             name="age"
                             value={this.state.age}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Gender</Tag>
                             <Input 
-                            placeholder="gender"
                             name="gender"
                             value={this.state.gender}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Birthday</Tag>
                             <Input 
-                            placeholder="birthday"
                             name="birthday"
                             value={this.state.birthday}
                             onChange={this.state.birthday}
                             />
                             <Tag color="cyan">text</Tag>
                             <Input 
-                            placeholder="text"
                             name="text"
                             value={this.state.text}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Other</Tag>
                             <TextArea 
-                            placeholder="other"
                             name="other"
                             value={this.state.other}
                             onChange={this.onChange}

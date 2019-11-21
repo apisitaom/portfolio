@@ -49,35 +49,30 @@ export default class AboutMeFrom extends Component {
                     <Col offset={4} span={16} style={{paddingBottom: '0.5%'}}>
                     <Tag color="cyan">Abount Me</Tag>
                         <TextArea 
-                        placeholder="Abount Me"
                         name="aboutme"
                         value={this.state.aboutme}
                         onChange={this.onChange}
                         />
                         <Tag color="cyan">Hobby / Free time</Tag>
                         <TextArea 
-                        placeholder="Hobby / Free time"
                         name="hobby"
                         value={this.state.hobby}
                         onChange={this.onChange}
                         />
                         <Tag color="cyan">Interest</Tag>
                         <TextArea 
-                        placeholder="Interest"
                         name="interest"
                         value={this.state.interest}
                         onChange={this.onChange}
                         />
                         <Tag color="cyan">Family</Tag>
                         <TextArea 
-                        placeholder="Family"
                         name="family"
                         value={this.state.family}
                         onChange={this.onChange}
                         />
                         <Tag color="cyan">Address</Tag>
                         <TextArea 
-                        placeholder="Address"
                         name="address"
                         value={this.state.address}
                         onChange={this.onChange}

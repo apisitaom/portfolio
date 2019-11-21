@@ -37,7 +37,6 @@ export default class LanguageFrom extends Component {
                     <Col offset={4} span={16} style={{paddingBottom: '0.5%'}}>
                         <Tag color="cyan">Language</Tag>
                         <TextArea 
-                        placeholder="language"
                         name="language"
                         value={this.state.language}
                         onChange={this.onChange}

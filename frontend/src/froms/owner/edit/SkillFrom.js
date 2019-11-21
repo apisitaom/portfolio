@@ -37,7 +37,6 @@ export default class SkillFrom extends Component {
                     <Col offset={4} span={16} style={{paddingBottom: '0.5%'}}>
                         <Tag color="cyan">Skills</Tag>
                         <TextArea 
-                        placeholder="skill"
                         name="skill"
                         value={this.state.skill}
                         onChange={this.onChange}

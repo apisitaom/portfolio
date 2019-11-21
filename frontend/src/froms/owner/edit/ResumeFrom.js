@@ -49,25 +49,21 @@ export default class ResumeFrom extends Component {
                         name="professional"
                         value={this.state.professional}
                         onChange={this.onChange}
-                        placeholder="Professional info"
                         />
                         <Tag color="cyan">Work​ experience</Tag>
                         <TextArea 
-                        placeholder="Work​ experience​"
                         name="experience"
                         value={this.state.experience}
                         onChange={this.onChange}
                         />
                         <Tag color="cyan">Education</Tag>
                         <TextArea 
-                        placeholder="Education"
                         name="education"
                         value={this.state.education}
                         onChange={this.onChange}
                         />
                         <Tag color="cyan">Activity</Tag>
                         <TextArea 
-                        placeholder="Activity"
                         name="activity"
                         value={this.state.activity}
                         onChange={this.onChange}
