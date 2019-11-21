@@ -28,7 +28,7 @@ async function edit(req, res, next) {
 }
 
 async function lists(req, res, next) {
-    const sql = `select title, result from result order by createdate asc`
+    const sql = `select title, result, resultid from result order by createdate asc`
     try {
         const { rows } = await db.query(sql);
         return responces.success(res, success.success, rows);

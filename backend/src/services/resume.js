@@ -28,7 +28,7 @@ async function edit (req, res, next) {
 }
 
 async function lists(req, res, next) {
-    const sql = `select professional, experience, education, activity from resume`
+    const sql = `select professional, experience, education, activity, resumeid from resume`
     try {
         const { rows } = await db.query(sql);
         return responces.success(res, success.success, rows)
