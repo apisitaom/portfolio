@@ -45,7 +45,7 @@ export default class AboutMeFrom extends Component {
         return (
             <div>
                 <Row>
-                <h1>About Me</h1>
+                <h1>ABOUT ME EDIT</h1>
                     <Col offset={4} span={16} style={{paddingBottom: '0.5%'}}>
                     <Tag color="cyan">Abount Me</Tag>
                         <TextArea 

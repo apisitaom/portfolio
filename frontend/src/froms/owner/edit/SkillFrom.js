@@ -33,7 +33,7 @@ export default class SkillFrom extends Component {
         return (
             <div>
                 <Row>
-                <h1>SKILLS</h1>
+                <h1>SKILLS EDIT</h1>
                     <Col offset={4} span={16} style={{paddingBottom: '0.5%'}}>
                         <Tag color="cyan">Skills</Tag>
                         <TextArea 

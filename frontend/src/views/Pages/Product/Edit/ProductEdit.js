@@ -5,10 +5,8 @@ import { message, Upload, Row, Col, Icon, Button, Form, Input } from 'antd'
 const { TextArea } = Input
 class ProductEdit extends Component {
   state = {
-    imgNage: 'http://localhost:4000/images/picture-1574176373901.jpg',
     imgFile: null,
     loading: false,
-    imageName: "",
   }
   beforeUpload = file => {
     const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
@@ -36,8 +34,17 @@ class ProductEdit extends Component {
   handleSubmit = async e => {
     e.preventDefault()    
     this.props.form.validateFields(async (err, value) => {
-      const formData = await this.setFormData(value);      
-      await albumAdd(formData);
+      if (!err) {
+        const formData = await this.setFormData(value);      
+        const resp = await albumAdd(formData);
+        console.log('responce :', resp);
+        
+        if (resp.code === 200) {
+          window.location.assign('#product');
+        } else {
+          message.error('Add Product failed, Please try again');
+        }
+      }
     })
   }
   setFormData = (values) => {
@@ -89,15 +96,15 @@ class ProductEdit extends Component {
                 <Form.Item label="Upload" >
                   {getFieldDecorator('upload', {
                   })(
-                        <Upload
-                          name="avatar"
-                          listType="picture-card"
-                          className="avatar-uploader"
-                          showUploadList={false}
-                          beforeUpload={this.beforeUpload}
-                        >
-                        {this.state.imageUrl ? <img src={this.state.imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-                        </Upload>
+                    <Upload
+                      name="avatar"
+                      listType="picture-card"
+                      className="avatar-uploader"
+                      showUploadList={false}
+                      beforeUpload={this.beforeUpload}
+                    >
+                    {this.state.imageUrl ? <img src={this.state.imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+                    </Upload>
                 )}
                 </Form.Item>
                 <Form.Item label="Name"  >
@@ -111,7 +118,6 @@ class ProductEdit extends Component {
                   })(
                     <Input
                       placeholder="Product names"
-                      autosize={{ minRows: 4, maxRows: 6 }}
                     />,
                   )}
                 </Form.Item>
@@ -126,7 +132,6 @@ class ProductEdit extends Component {
                   })(
                     <Input
                       placeholder="Product urls"
-                      autosize={{ minRows: 4, maxRows: 6 }}
                     />,
                   )}
                 </Form.Item>
@@ -141,7 +146,6 @@ class ProductEdit extends Component {
                   })(
                     <TextArea
                       placeholder="Product details"
-                      autosize={{ minRows: 4, maxRows: 6 }}
                     />,
                   )}
                 </Form.Item>
