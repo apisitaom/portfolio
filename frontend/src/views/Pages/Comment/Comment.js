@@ -28,6 +28,7 @@ export default class Comment extends Component {
       const data = {
         comment: this.state.comment
       }
+      window.location.reload();
       commentAdd(data);
     }
     render() {

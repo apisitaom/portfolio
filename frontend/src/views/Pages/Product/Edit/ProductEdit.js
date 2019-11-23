@@ -50,7 +50,8 @@ class ProductEdit extends Component {
     formData.append('picture', this.state.imgFile)    
     formData.append('detail', values.detail)    
     formData.append('url', values.url)    
-    formData.append('name', values.name)    
+    formData.append('name', values.name)  
+    formData.append('content', values.content)    
     return formData
   }
   render() {  
@@ -116,6 +117,20 @@ class ProductEdit extends Component {
                   })(
                     <Input
                       placeholder="Product names"
+                    />,
+                  )}
+                </Form.Item>
+                <Form.Item label="content"  >
+                  {getFieldDecorator('content', {
+                    rules: [
+                      {
+                        required: true,
+                        message: 'Please input your contents!'
+                      }
+                    ],
+                  })(
+                    <Input
+                      placeholder="Product contents"
                     />,
                   )}
                 </Form.Item>
