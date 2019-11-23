@@ -1,4 +1,4 @@
-import  { Fetch } from './fetch'
+import  { Fetch, FetchForm } from './fetch'
 
 //------------------ LOGIN -------------------
 export const login = async(data) => {
@@ -7,7 +7,7 @@ export const login = async(data) => {
 }
 //------------------ ALBUM -------------------
 export const albumAdd = async(data) => {
-    const res = await Fetch("POST", '', '/album/add', data)
+    const res = await FetchForm("POST", '', '/album/add', data)
     return res
 }
 export const albumEdit = async(data) => {

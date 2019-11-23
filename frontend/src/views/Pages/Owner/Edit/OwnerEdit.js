@@ -6,9 +6,9 @@ import AboutMeFrom from '../../../../froms/owner/edit/AboutMeFrom'
 import ResumeFrom from '../../../../froms/owner/edit/ResumeFrom'
 import SkillFrom from '../../../../froms/owner/edit/SkillFrom'
 import LanguageFrom from '../../../../froms/owner/edit/LanguageFrom'
+import CardNextPage from '../../../../froms/owner/edit/CardNextPage'
 import { ownerEdit, aboutmeEdit, resumemeEdit, skillEdit, languageEdit } from '../../../../services/api'
 export default class OwnerEdit extends Component {
-    UNSAFE_componentWillMount () {}
     onEditOwner = async (data) => {
         await ownerEdit(data); 
     }
@@ -29,6 +29,9 @@ export default class OwnerEdit extends Component {
             <div>
                 <TabFrom />
                 <Row style={{paddingTop: '1.5%'}}>
+                    <Col offset={8} span={12}>
+                    <CardNextPage />
+                    </Col>
                     <Col offset={6} span={12}>
                     <OwnerEditFrom 
                     editOwnerEdit={this.onEditOwner}

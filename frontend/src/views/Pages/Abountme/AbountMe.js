@@ -36,7 +36,6 @@ export default class AbountMe extends Component {
                     <Tag color="#2db7f5" style={{fontSize: '150%'}}>About me</Tag>
                         <p>{this.state.aboutme}</p>
                     <Divider /> 
-
                     <Tag color="#2db7f5" style={{fontSize: '150%'}}>Hobby / Free time</Tag>
                         <p>{this.state.hobby}</p>
                     <Divider />   
