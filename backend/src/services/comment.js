@@ -17,7 +17,7 @@ async function add(req, res, next) {
 
 
 async function lists(req, res, next) {
-    const sql = `select comment from comment`
+    const sql = `select comment, createdate, commentid from comment order by createdate DESC`
     try {
         const { rows } = await db.query(sql);
         return responces.success(res, success.success, rows)
