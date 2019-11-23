@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import TabFrom from '../../../../froms/nav/TabFrom'
 import { albumAdd } from '../../../../services/api'
-import { message, Upload, Row, Col, Icon, Button, Form } from 'antd'
+import { message, Upload, Row, Col, Icon, Button, Form, Input } from 'antd'
+const { TextArea } = Input
 class ProductEdit extends Component {
   state = {
     imgNage: 'http://localhost:4000/images/picture-1574176373901.jpg',
     imgFile: null,
     loading: false,
-    btnLoading: false,
     imageName: "",
   }
   beforeUpload = file => {
@@ -37,15 +37,40 @@ class ProductEdit extends Component {
     e.preventDefault()    
     this.props.form.validateFields(async (err, value) => {
       const formData = await this.setFormData(value);      
-      // await albumAdd(formData);
+      await albumAdd(formData);
     })
   }
   setFormData = (values) => {
     const formData = new FormData()
     formData.append('picture', this.state.imgFile)    
+    formData.append('detail', values.detail)    
+    formData.append('url', values.url)    
+    formData.append('name', values.name)    
     return formData
   }
-  render() {    
+  render() {  
+    const formItemLayout = {
+      labelCol: {
+        xs: { span: 0 },
+        sm: { span: 2 },
+      },
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 8 },
+      },
+    };
+    const tailFormItemLayout = {
+      wrapperCol: {
+        xs: {
+          span: 24,
+          offset: 0,
+        },
+        sm: {
+          span: 16,
+          offset: 2,
+        },
+      },
+    };
     const { getFieldDecorator } = this.props.form;
     const uploadButton = (
         <div>
@@ -60,10 +85,8 @@ class ProductEdit extends Component {
                 <TabFrom />
               </Col>
             </Row>
-            <Row>
-              <Col span={24}>
-                <Form onSubmit = {this.handleSubmit}>
-                <Form.Item label="Upload" labelAlign="left">
+            <Form  style={{paddingTop: '1.2%'}} {...formItemLayout} onSubmit = {this.handleSubmit}>
+                <Form.Item label="Upload" >
                   {getFieldDecorator('upload', {
                   })(
                         <Upload
@@ -76,14 +99,58 @@ class ProductEdit extends Component {
                         {this.state.imageUrl ? <img src={this.state.imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
                         </Upload>
                 )}
+                </Form.Item>
+                <Form.Item label="Name"  >
+                  {getFieldDecorator('name', {
+                    rules: [
+                      {
+                        required: true,
+                        message: 'Please input your names!'
+                      }
+                    ],
+                  })(
+                    <Input
+                      placeholder="Product names"
+                      autosize={{ minRows: 4, maxRows: 6 }}
+                    />,
                   )}
                 </Form.Item>
-                <Button type="primary" htmlType="submit" loading={this.state.btnLoading} >
-                    SUBMIT
-                </Button>
+                <Form.Item label="URL"  >
+                  {getFieldDecorator('url', {
+                    rules: [
+                      {
+                        required: true,
+                        message: 'Please input your urls!'
+                      }
+                    ],
+                  })(
+                    <Input
+                      placeholder="Product urls"
+                      autosize={{ minRows: 4, maxRows: 6 }}
+                    />,
+                  )}
+                </Form.Item>
+                <Form.Item label="Detail"  >
+                  {getFieldDecorator('detail', {
+                    rules: [
+                      {
+                        required: true,
+                        message: 'Please input your details!'
+                      }
+                    ],
+                  })(
+                    <TextArea
+                      placeholder="Product details"
+                      autosize={{ minRows: 4, maxRows: 6 }}
+                    />,
+                  )}
+                </Form.Item>
+                <Form.Item {...tailFormItemLayout}>
+                  <Button type="primary" htmlType="submit"  >
+                      SUBMIT
+                  </Button>
+                </Form.Item>
                 </Form>
-              </Col>
-            </Row>
           </div>
       )
   }
