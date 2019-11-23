@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Drawer, Input, Divider, Button, Col, Icon } from 'antd'
 import { NavDropdown } from 'react-bootstrap' 
+import { commentAdd } from '../../../services/api'
 const { TextArea } = Input;
 export default class Comment extends Component {
     state = {
         visible: false,
-        placement: 'right'
+        placement: 'right',
+        comment: ''
     }
     showDrawer = () => {
       this.setState({
@@ -17,6 +19,17 @@ export default class Comment extends Component {
         visible: false
       });
     };
+    onChange = (e) => {
+      this.setState({
+          [e.target.name]: e.target.value
+      })
+    } 
+    onSubmit = () => {
+      const data = {
+        comment: this.state.comment
+      }
+      commentAdd(data);
+    }
     render() {
         return (
             <div>
@@ -33,12 +46,18 @@ export default class Comment extends Component {
                   <Icon type="user" style={{fontSize:'150%'}} />
                   <Col style={{paddingTop:'1.5%'}}>
                   <TextArea 
+                  name="comment"
+                  onChange={this.onChange}
                   style={{height: '150px'}}
                   placeholder="add some comment"
                   />                    
                   </Col>
                   <Col style={{paddingTop:'1.5%'}}>
-                    <Button type="primary">Add Comment</Button>
+                    <Button 
+                    onClick={this.onSubmit}
+                    type="primary">
+                      Add Comment
+                    </Button>
                   </Col>
                 </Drawer>
             </div>
