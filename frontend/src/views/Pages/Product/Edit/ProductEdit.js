@@ -37,8 +37,6 @@ class ProductEdit extends Component {
       if (!err) {
         const formData = await this.setFormData(value);      
         const resp = await albumAdd(formData);
-        console.log('responce :', resp);
-        
         if (resp.code === 200) {
           window.location.assign('#product');
         } else {
