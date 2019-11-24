@@ -166,7 +166,7 @@ class ProductEdit extends Component {
                   <Button type="primary" htmlType="submit"  >
                       SUBMIT
                   </Button>
-                </Form.Item>
+                </Form.Item> 
                 </Form>
           </div>
       )

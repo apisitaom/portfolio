@@ -18,8 +18,8 @@ export const albumAll = async (data, token = "") => {
     const res = await Fetch("GET", token, `/album/lists`, data);
     return res;
 };
-export const albumDeleted = async (data, token = "") => {
-    const res = await Fetch("DELETE", token, `/album/deleted`, data);
+export const albumDeleted = async (data, token = "") => {    
+    const res = await Fetch("DELETE", token, `/album/deleted/${data}`, data);
     return res;
 };
 //------------------ LANGUAGE -------------------

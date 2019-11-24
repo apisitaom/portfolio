@@ -30,7 +30,7 @@ export default class OwnerEdit extends Component {
             <div>
                 <TabFrom />
                 <Row style={{paddingTop: '1.5%'}}>
-                    <Col offset={8} span={12}>
+                    <Col offset={6} span={12}>
                     <CardNextPage />
                     </Col>
                     <Col offset={6} span={12}>
