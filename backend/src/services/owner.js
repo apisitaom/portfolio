@@ -29,13 +29,13 @@ async function add(req, res, next) {
 }
 
 async function edit(req, res, next) {
-    const { name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, other, text } = req.body;
+    const { name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, other, text, email, ig } = req.body;
     const date = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
     const sqlnopicture = `update 
     owner 
-    set name = $1, phonnumber = $2, address = $3, subdistrict = $4, district = $5, provicne = $6, zipcode = $7, facebook = $8, github = $9, gitlab = $10, okta = $11, age = $12, gender = $13, birthday = $14, other = $15, modifydate = $16, text = $17 
-    where ownerid = $18`
-    const valuesnopicture = [ name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, other, date, text, req.params.id ]
+    set name = $1, phonnumber = $2, address = $3, subdistrict = $4, district = $5, provicne = $6, zipcode = $7, facebook = $8, github = $9, gitlab = $10, okta = $11, age = $12, gender = $13, birthday = $14, other = $15, modifydate = $16, text = $17, email = $18, ig = $19 
+    where ownerid = $20`
+    const valuesnopicture = [ name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, other, date, text, email, ig, req.params.id ]
     try {
         db.query(sqlnopicture, valuesnopicture);
         return responces.success(res, success.success);
@@ -45,7 +45,7 @@ async function edit(req, res, next) {
 }
 
 async function lists (req, res, next) {
-    const sql = `select picture, name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, interest, text, ownerid from owner`
+    const sql = `select picture, name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, interest, text, email, ig, ownerid from owner`
     try {
         const { rows } = await db.query(sql);
         return responces.success(res, success.success, rows);
