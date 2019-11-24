@@ -31,13 +31,26 @@ async function add(req, res, next) {
 async function edit(req, res, next) {
     const { name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, other, text, email, ig } = req.body;
     const date = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
-    const sqlnopicture = `update 
+    const sql = `update 
     owner 
     set name = $1, phonnumber = $2, address = $3, subdistrict = $4, district = $5, provicne = $6, zipcode = $7, facebook = $8, github = $9, gitlab = $10, okta = $11, age = $12, gender = $13, birthday = $14, other = $15, modifydate = $16, text = $17, email = $18, ig = $19 
     where ownerid = $20`
-    const valuesnopicture = [ name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, other, date, text, email, ig, req.params.id ]
+    const values = [ name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, other, date, text, email, ig, req.params.id ]
     try {
-        db.query(sqlnopicture, valuesnopicture);
+        db.query(sql, values);
+        return responces.success(res, success.success);
+    } catch (error) {
+        return responces.error(res, errors.server);
+    }
+}
+
+async function picture (req, res, next) {    
+    const sql = `update 
+    owner 
+    set picture = $1 where ownerid = $2`
+    const values = [ req.files[0].filename , req.body.id]
+    try {
+        db.query(sql, values);
         return responces.success(res, success.success);
     } catch (error) {
         return responces.error(res, errors.server);
@@ -54,4 +67,4 @@ async function lists (req, res, next) {
     }
 }
 
-module.exports = { add, edit, lists }
+module.exports = { add, edit, picture, lists }
