@@ -71,11 +71,15 @@ export default class ProductLists extends Component {
                         <TabFrom />
                     </Col>
                 </Row>
-                <Table 
-                columns={columns}
-                dataSource={this.state.albums}
-                rowKey={(row, index)=> index}
-                />
+                <Row>
+                    <Col offset={2} span={20} style={{paddingTop:'1.2%'}}>
+                        <Table 
+                        columns={columns}
+                        dataSource={this.state.albums}
+                        rowKey={(row, index)=> index}
+                        />
+                    </Col>
+                </Row>
             </div>
         )
     }
