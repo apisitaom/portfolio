@@ -19,6 +19,8 @@ export default class OwnerEditFrom extends Component {
         gender: '',
         birthday: '',
         text: '',
+        email: '',
+        ig: '',
         other: '',
         id: ''
     }
@@ -26,7 +28,7 @@ export default class OwnerEditFrom extends Component {
         this.onSetEditOwner();
     }
     onSetEditOwner = async () => {
-        const resp = await ownerAll();
+        const resp = await ownerAll();        
         this.setState({
             name: resp.data[0].name,
             phonnumber: resp.data[0].phonnumber,
@@ -44,6 +46,8 @@ export default class OwnerEditFrom extends Component {
             birthday: resp.data[0].birthday,
             other: resp.data[0].other,
             text: resp.data[0].text,
+            email: resp.data[0].email,
+            ig: resp.data[0].ig,
             id: resp.data[0].ownerid
         })
     }
@@ -65,6 +69,8 @@ export default class OwnerEditFrom extends Component {
             birthday: this.state.birthday,
             text: this.state.text,
             other: this.state.other,
+            email: this.state.email,
+            ig: this.state.ig,
             id: this.state.id
         }        
         this.props.editOwnerEdit(data);
@@ -168,6 +174,18 @@ export default class OwnerEditFrom extends Component {
                             <Input 
                             name="text"
                             value={this.state.text}
+                            onChange={this.onChange}
+                            />
+                            <Tag color="cyan">email</Tag>
+                            <Input 
+                            name="email"
+                            value={this.state.email}
+                            onChange={this.onChange}
+                            />
+                            <Tag color="cyan">ig</Tag>
+                            <Input 
+                            name="ig"
+                            value={this.state.ig}
                             onChange={this.onChange}
                             />
                             <Tag color="cyan">Other</Tag>

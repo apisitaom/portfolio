@@ -12,7 +12,7 @@ export default class OwnerListFrom extends Component {
     }
     onGetOwner = async () => {
         const resp = await ownerAll();
-        this.setState({
+        resp.code === 200 && this.setState({
             name: resp.data[0].name,
             text: resp.data[0].text,
             other: resp.data[0].other

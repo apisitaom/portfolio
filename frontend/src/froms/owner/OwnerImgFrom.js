@@ -11,7 +11,7 @@ export default class OwnerImgFrom extends Component {
     }
     onGetOwner = async () => {
         const resp = await ownerAll();
-        this.setState({
+        resp.code === 200 && this.setState({
             imgName: `${imagurl}${resp.data[0].picture}` 
         })
     }
