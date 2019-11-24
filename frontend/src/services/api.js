@@ -52,6 +52,10 @@ export const ownerAll = async (data, token = "") => {
     const res = await Fetch("GET", token, `/owner/lists`, data);
     return res;
 };
+export const ownerPicture = async(data) => {
+    const res = await FetchForm("POST", '', `/owner/picture/${data.id}`, data)
+    return res
+}
 //------------------ RESULT -------------------
 export const resultAdd = async(data) => {
     const res = await Fetch("POST", '', '/result/add', data)

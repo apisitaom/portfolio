@@ -29,7 +29,7 @@ export default class OwnerEditFrom extends Component {
     }
     onSetEditOwner = async () => {
         const resp = await ownerAll();        
-        this.setState({
+        resp.code === 200 && this.setState({
             name: resp.data[0].name,
             phonnumber: resp.data[0].phonnumber,
             address: resp.data[0].address,

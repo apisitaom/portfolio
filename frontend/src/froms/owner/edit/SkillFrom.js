@@ -12,7 +12,7 @@ export default class SkillFrom extends Component {
     }
     onSetSkillEdit = async () => {
         const resp = await skillAll();
-        this.setState({
+        resp.code === 200 && this.setState({
             skill: resp.data[0].skill,
             id: resp.data[0].skillid
         })                  

@@ -16,7 +16,7 @@ export default class AboutMeFrom extends Component {
     }
     onSetAboutme = async () => {
         const resp = await aboutmeAll();
-        this.setState({
+        resp.code === 200 && this.setState({
             aboutme: resp.data[0].aboutme,
             address: resp.data[0].address,
             family: resp.data[0].family,

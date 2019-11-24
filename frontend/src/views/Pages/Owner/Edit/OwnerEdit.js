@@ -7,6 +7,7 @@ import ResumeFrom from '../../../../froms/owner/edit/ResumeFrom'
 import SkillFrom from '../../../../froms/owner/edit/SkillFrom'
 import LanguageFrom from '../../../../froms/owner/edit/LanguageFrom'
 import CardNextPage from '../../../../froms/owner/edit/CardNextPage'
+import OwnerEditImgForm from '../../../../froms/owner/edit/OwnerEditImgForm'
 import { ownerEdit, aboutmeEdit, resumemeEdit, skillEdit, languageEdit } from '../../../../services/api'
 export default class OwnerEdit extends Component {
     onEditOwner = async (data) => {
@@ -33,6 +34,8 @@ export default class OwnerEdit extends Component {
                     <CardNextPage />
                     </Col>
                     <Col offset={6} span={12}>
+                    <OwnerEditImgForm 
+                    />
                     <OwnerEditFrom 
                     editOwnerEdit={this.onEditOwner}
                     />

@@ -20,7 +20,7 @@ export default class OwnerAlbumFrom extends Component {
   }
   onGetAlbum = async () => {
     const resp = await albumAll();
-    await this.setState({
+    resp.code === 200 && await this.setState({
       album: resp.data,
       picture: `${imagurl}${resp.data[0].album}`,
       length: resp.data.length

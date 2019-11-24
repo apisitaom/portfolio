@@ -15,7 +15,7 @@ export default class ResumeFrom extends Component {
     }
     onSetResumeEdit = async () => {
         const resp = await resumemeAll();
-        this.setState({
+        resp.code === 200 && this.setState({
             professional: resp.data[0].professional,
             experience: resp.data[0].experience,
             education: resp.data[0].education,

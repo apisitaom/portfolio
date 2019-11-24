@@ -12,7 +12,7 @@ export default class LanguageFrom extends Component {
     }
     onSetLanguageEdit = async () => {
         const resp = await languageAll();
-        this.setState({
+        resp.code === 200 && this.setState({
             language: resp.data[0].language,
             id: resp.data[0].languageid
         })                
