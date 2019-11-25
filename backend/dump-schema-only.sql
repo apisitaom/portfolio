@@ -49,15 +49,56 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: aboutme; Type: TABLE; Schema: public; Owner: aom
+--
+
+CREATE TABLE public.aboutme (
+    aboutid integer NOT NULL,
+    aboutme character varying(400),
+    hobby character varying(300),
+    interest character varying(300),
+    family character varying(250),
+    address character varying(250)
+);
+
+
+ALTER TABLE public.aboutme OWNER TO aom;
+
+--
+-- Name: about_aboutid_seq; Type: SEQUENCE; Schema: public; Owner: aom
+--
+
+CREATE SEQUENCE public.about_aboutid_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.about_aboutid_seq OWNER TO aom;
+
+--
+-- Name: about_aboutid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: aom
+--
+
+ALTER SEQUENCE public.about_aboutid_seq OWNED BY public.aboutme.aboutid;
+
+
+--
 -- Name: album; Type: TABLE; Schema: public; Owner: aom
 --
 
 CREATE TABLE public.album (
     createdate timestamp without time zone DEFAULT now(),
-    album text[],
     albumid integer NOT NULL,
     modifydate timestamp without time zone,
-    detail character varying(100)
+    detail character varying(300),
+    url character varying(350),
+    name character varying(120),
+    album character varying(150),
+    content character varying(120)
 );
 
 
@@ -86,14 +127,49 @@ ALTER SEQUENCE public.album_albumid_seq OWNED BY public.album.albumid;
 
 
 --
+-- Name: comment; Type: TABLE; Schema: public; Owner: aom
+--
+
+CREATE TABLE public.comment (
+    commentid integer NOT NULL,
+    comment character varying(250),
+    createdate timestamp without time zone DEFAULT now()
+);
+
+
+ALTER TABLE public.comment OWNER TO aom;
+
+--
+-- Name: comment_commentid_seq; Type: SEQUENCE; Schema: public; Owner: aom
+--
+
+CREATE SEQUENCE public.comment_commentid_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.comment_commentid_seq OWNER TO aom;
+
+--
+-- Name: comment_commentid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: aom
+--
+
+ALTER SEQUENCE public.comment_commentid_seq OWNED BY public.comment.commentid;
+
+
+--
 -- Name: language; Type: TABLE; Schema: public; Owner: aom
 --
 
 CREATE TABLE public.language (
     createdate timestamp without time zone DEFAULT now(),
     languageid integer NOT NULL,
-    language character varying(70),
-    title character varying(30)
+    title character varying(30),
+    language character varying(250)
 );
 
 
@@ -157,8 +233,12 @@ CREATE TABLE public.owner (
     gender character varying(30),
     birthday timestamp without time zone,
     education character varying(400),
-    other character varying(120),
-    ownerid uuid DEFAULT public.gen_random_uuid() NOT NULL
+    ownerid uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    other character varying(500),
+    interest character varying(500),
+    text character varying(100),
+    email character varying(80),
+    ig character varying(50)
 );
 
 
@@ -201,14 +281,51 @@ ALTER SEQUENCE public.result_resultid_seq OWNED BY public.result.resultid;
 
 
 --
+-- Name: resume; Type: TABLE; Schema: public; Owner: aom
+--
+
+CREATE TABLE public.resume (
+    resumeid integer NOT NULL,
+    experience character varying(300),
+    education character varying(250),
+    activity character varying(300),
+    professional character varying(800)
+);
+
+
+ALTER TABLE public.resume OWNER TO aom;
+
+--
+-- Name: resume_resumeid_seq; Type: SEQUENCE; Schema: public; Owner: aom
+--
+
+CREATE SEQUENCE public.resume_resumeid_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.resume_resumeid_seq OWNER TO aom;
+
+--
+-- Name: resume_resumeid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: aom
+--
+
+ALTER SEQUENCE public.resume_resumeid_seq OWNED BY public.resume.resumeid;
+
+
+--
 -- Name: skill; Type: TABLE; Schema: public; Owner: aom
 --
 
 CREATE TABLE public.skill (
     createdate timestamp without time zone DEFAULT now(),
     skillid integer NOT NULL,
-    skill character varying(70),
-    title character varying(30)
+    title character varying(30),
+    skill character varying(500)
 );
 
 
@@ -237,10 +354,24 @@ ALTER SEQUENCE public.skill_skillid_seq OWNED BY public.skill.skillid;
 
 
 --
+-- Name: aboutme aboutid; Type: DEFAULT; Schema: public; Owner: aom
+--
+
+ALTER TABLE ONLY public.aboutme ALTER COLUMN aboutid SET DEFAULT nextval('public.about_aboutid_seq'::regclass);
+
+
+--
 -- Name: album albumid; Type: DEFAULT; Schema: public; Owner: aom
 --
 
 ALTER TABLE ONLY public.album ALTER COLUMN albumid SET DEFAULT nextval('public.album_albumid_seq'::regclass);
+
+
+--
+-- Name: comment commentid; Type: DEFAULT; Schema: public; Owner: aom
+--
+
+ALTER TABLE ONLY public.comment ALTER COLUMN commentid SET DEFAULT nextval('public.comment_commentid_seq'::regclass);
 
 
 --
@@ -258,10 +389,25 @@ ALTER TABLE ONLY public.result ALTER COLUMN resultid SET DEFAULT nextval('public
 
 
 --
+-- Name: resume resumeid; Type: DEFAULT; Schema: public; Owner: aom
+--
+
+ALTER TABLE ONLY public.resume ALTER COLUMN resumeid SET DEFAULT nextval('public.resume_resumeid_seq'::regclass);
+
+
+--
 -- Name: skill skillid; Type: DEFAULT; Schema: public; Owner: aom
 --
 
 ALTER TABLE ONLY public.skill ALTER COLUMN skillid SET DEFAULT nextval('public.skill_skillid_seq'::regclass);
+
+
+--
+-- Name: aboutme about_pkey; Type: CONSTRAINT; Schema: public; Owner: aom
+--
+
+ALTER TABLE ONLY public.aboutme
+    ADD CONSTRAINT about_pkey PRIMARY KEY (aboutid);
 
 
 --
@@ -270,6 +416,14 @@ ALTER TABLE ONLY public.skill ALTER COLUMN skillid SET DEFAULT nextval('public.s
 
 ALTER TABLE ONLY public.album
     ADD CONSTRAINT album_pkey PRIMARY KEY (albumid);
+
+
+--
+-- Name: comment comment_pkey; Type: CONSTRAINT; Schema: public; Owner: aom
+--
+
+ALTER TABLE ONLY public.comment
+    ADD CONSTRAINT comment_pkey PRIMARY KEY (commentid);
 
 
 --
@@ -302,6 +456,14 @@ ALTER TABLE ONLY public.owner
 
 ALTER TABLE ONLY public.result
     ADD CONSTRAINT result_pkey PRIMARY KEY (resultid);
+
+
+--
+-- Name: resume resume_pkey; Type: CONSTRAINT; Schema: public; Owner: aom
+--
+
+ALTER TABLE ONLY public.resume
+    ADD CONSTRAINT resume_pkey PRIMARY KEY (resumeid);
 
 
 --
