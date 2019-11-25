@@ -23,8 +23,8 @@ export default class Owner extends Component {
                         <OwnerListFrom />
                     </Col>
                 </Row>
-                <Row>
-                    <Col span={24} style={{paddingBottom: '1.5%'}}>
+                <Row style={{paddingTop: '10%'}}>
+                    <Col span={24} >
                         <OwnerDetailFrom />
                     </Col>
                 </Row>
