@@ -1,8 +1,9 @@
+### RESUME HOME PAGE 
 
-BACKEND
+### Framework
 
-npm i 
+### Backend: Express
 
-npm init -y
+### Frontend: React | UI Design By Ant Design and React-bootstrap
 
-npm i express bcrypt body-parser pg postgresql multer dotenv cors bcrypt path body-parser nodemon request-ip -s
+### Data base: PostgreSQL
