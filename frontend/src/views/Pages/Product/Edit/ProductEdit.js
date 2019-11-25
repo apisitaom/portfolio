@@ -120,20 +120,6 @@ class ProductEdit extends Component {
                     />,
                   )}
                 </Form.Item>
-                <Form.Item label="content"  >
-                  {getFieldDecorator('content', {
-                    rules: [
-                      {
-                        required: true,
-                        message: 'Please input your contents!'
-                      }
-                    ],
-                  })(
-                    <Input
-                      placeholder="Product contents"
-                    />,
-                  )}
-                </Form.Item>
                 <Form.Item label="URL"  >
                   {getFieldDecorator('url', {
                     rules: [
@@ -159,6 +145,20 @@ class ProductEdit extends Component {
                   })(
                     <TextArea
                       placeholder="Product details"
+                    />,
+                  )}
+                </Form.Item>
+                <Form.Item label="content"  >
+                  {getFieldDecorator('content', {
+                    rules: [
+                      {
+                        required: true,
+                        message: 'Please input your contents!'
+                      }
+                    ],
+                  })(
+                    <Input
+                      placeholder="Product contents"
                     />,
                   )}
                 </Form.Item>
