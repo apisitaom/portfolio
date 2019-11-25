@@ -5,8 +5,6 @@ import OwnerListFrom from '../../../froms/owner/OwnerListFrom'
 import TabFrom from '../../../froms/nav/TabFrom' 
 import OwnerDetailFrom from '../../../froms/owner/OwnerDetailFrom'
 export default class Owner extends Component {
-    state={}
-    UNSAFE_componentWillMount(){}
     render() {
         return (
             <div className="body">
