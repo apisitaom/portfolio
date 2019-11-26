@@ -10,14 +10,14 @@ export default class AbountMe extends Component {
         hobby: 'NOT HAVE',
         interest: 'NOT HAVE',
         //OWNER 
-        name: '',
-        age: '',
-        gender: '',
-        github: '',
-        gitlab: '',
-        ig: '',
-        phonnumber: '',
-        email: ''
+        name: 'NOT HAVE',
+        age: 'NOT HAVE',
+        gender: 'NOT HAVE',
+        github: 'NOT HAVE',
+        gitlab: 'NOT HAVE',
+        ig: 'NOT HAVE',
+        phonnumber: 'NOT HAVE',
+        email: 'NOT HAVE'
     }
     UNSAFE_componentWillMount () {
         this.onGetAboutMe();
