@@ -5,23 +5,14 @@ const errors = require('../libs/error');
 const moment = require('moment');
 
 async function add(req, res, next) {
-    const { name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, interest, text } = req.body;
+    const { name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, interest, text, email, ig } = req.body;
     const sql = `insert into 
     owner 
-    (picture, name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, interest, text)
-    values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)`
-    const values = [req.files[0].filename, name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, interest, text]
-    const sqlnopicture = `insert into 
-    owner 
-    ( name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, interest, text)
-    values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)`
-    const valuesnopicture = [ name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, interest, text ]
+    ( name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, interest, text, email, ig)
+    values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)`
+    const values = [ name, phonnumber, address, subdistrict, district, provicne, zipcode, facebook, github, gitlab, okta, age, gender, birthday, education, other, interest, text, email, ig ]
     try {
-        if(req.files[0] !== undefined) {
-            db.query(sql, values);
-        } else {
-            db.query(sqlnopicture, valuesnopicture);
-        }
+        db.query(sql, values);
         return responces.success(res, success.success);
     } catch (error) {
         return responces.error(res, errors.server);
