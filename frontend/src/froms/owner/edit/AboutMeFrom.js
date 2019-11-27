@@ -4,6 +4,7 @@ import { aboutmeAll } from '../../../services/api'
 const { TextArea } = Input;
 export default class AboutMeFrom extends Component {
     state = {
+        action: 'add',
         aboutme: '',
         address: '',
         family: '',
@@ -16,14 +17,17 @@ export default class AboutMeFrom extends Component {
     }
     onSetAboutme = async () => {
         const resp = await aboutmeAll();
-        resp.code === 200 && this.setState({
-            aboutme: resp.data[0].aboutme,
-            address: resp.data[0].address,
-            family: resp.data[0].family,
-            hobby: resp.data[0].hobby,
-            interest: resp.data[0].interest,
-            id: resp.data[0].aboutid
-        })
+        if (resp.code === 200 && resp.data[0] !== undefined) {
+            this.setState({
+                action: "edit",
+                aboutme: resp.data[0].aboutme,
+                address: resp.data[0].address,
+                family: resp.data[0].family,
+                hobby: resp.data[0].hobby,
+                interest: resp.data[0].interest,
+                id: resp.data[0].aboutid
+            })
+        }
     }
     onSubmitEditAboutme = () => {
         const data = {
@@ -36,16 +40,26 @@ export default class AboutMeFrom extends Component {
         }        
         this.props.editAboutme(data);
     }
+    onSubmitAddAboutme = () => {
+        const data = {
+            aboutme: this.state.aboutme,
+            address: this.state.address,
+            family: this.state.family,
+            hobby: this.state.hobby,
+            interest: this.state.interest,
+        }        
+        this.props.addAboutme(data);
+    }
     onChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     } 
-    render() {
+    render() {        
         return (
             <div>
                 <Row>
-                <h1>ABOUT ME EDIT</h1>
+                <h1>ABOUT ME</h1>
                     <Col offset={4} span={16} style={{paddingBottom: '0.5%'}}>
                     <Tag color="cyan">Abount Me</Tag>
                         <TextArea 
@@ -78,9 +92,9 @@ export default class AboutMeFrom extends Component {
                         onChange={this.onChange}
                         />
                         <Button 
-                        onClick={this.onSubmitEditAboutme}
+                        onClick={this.state.action === "edit" ? this.onSubmitEditAboutme : this.onSubmitAddAboutme}
                         type="primary">
-                            Edit About me
+                            {this.state.action}
                         </Button>
                     </Col>
                 </Row>

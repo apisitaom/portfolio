@@ -4,6 +4,7 @@ import { ownerAll } from '../../../services/api'
 const { TextArea } = Input
 export default class OwnerEditFrom extends Component {
     state={
+        action: 'add',
         name: '',
         phonnumber: '',
         address: '',
@@ -28,28 +29,31 @@ export default class OwnerEditFrom extends Component {
         this.onSetEditOwner();
     }
     onSetEditOwner = async () => {
-        const resp = await ownerAll();        
-        resp.code === 200 && this.setState({
-            name: resp.data[0].name,
-            phonnumber: resp.data[0].phonnumber,
-            address: resp.data[0].address,
-            subdistrict: resp.data[0].subdistrict,
-            district: resp.data[0].district,
-            provicne: resp.data[0].provicne,
-            zipcode: resp.data[0].zipcode,
-            facebook: resp.data[0].facebook,
-            github: resp.data[0].github,
-            gitlab: resp.data[0].gitlab,
-            okta: resp.data[0].okta,
-            age: resp.data[0].age,
-            gender: resp.data[0].gender,
-            birthday: resp.data[0].birthday,
-            other: resp.data[0].other,
-            text: resp.data[0].text,
-            email: resp.data[0].email,
-            ig: resp.data[0].ig,
-            id: resp.data[0].ownerid
-        })
+        const resp = await ownerAll();  
+        if (resp.code === 200 && resp.data[0] !== undefined) {
+            this.setState({
+                action: "edit",
+                name: resp.data[0].name,
+                phonnumber: resp.data[0].phonnumber,
+                address: resp.data[0].address,
+                subdistrict: resp.data[0].subdistrict,
+                district: resp.data[0].district,
+                provicne: resp.data[0].provicne,
+                zipcode: resp.data[0].zipcode,
+                facebook: resp.data[0].facebook,
+                github: resp.data[0].github,
+                gitlab: resp.data[0].gitlab,
+                okta: resp.data[0].okta,
+                age: resp.data[0].age,
+                gender: resp.data[0].gender,
+                birthday: resp.data[0].birthday,
+                other: resp.data[0].other,
+                text: resp.data[0].text,
+                email: resp.data[0].email,
+                ig: resp.data[0].ig,
+                id: resp.data[0].ownerid
+            })
+        }
     }
     onSubmitEditOwner =  () => {
         const data = {
@@ -75,16 +79,39 @@ export default class OwnerEditFrom extends Component {
         }        
         this.props.editOwnerEdit(data);
     }
+    onSubmitAddOwner =  () => {
+        const data = {
+            name: this.state.name,
+            phonnumber: this.state.phonnumber,
+            address: this.state.address,
+            subdistrict: this.state.subdistrict,
+            district: this.state.district,
+            provicne: this.state.provicne,
+            zipcode: this.state.zipcode,
+            facebook: this.state.facebook,
+            github: this.state.github,
+            gitlab: this.state.gitlab,
+            okta: this.state.okta,
+            age: this.state.age,
+            gender: this.state.gender,
+            birthday: this.state.birthday,
+            text: this.state.text,
+            other: this.state.other,
+            email: this.state.email,
+            ig: this.state.ig,
+        }        
+        this.props.addOwner(data);
+    }
     onChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     } 
-    render() {
+    render() {        
         return (
             <div>
                 <Row>
-                <h1>OWNER EDIT</h1>
+                <h1>OWNER</h1>
                         <Col offset={4} span={16} style={{paddingBottom: '0.5%'}}>
                             <Tag color="cyan">Name</Tag>
                             <Input 
@@ -168,7 +195,7 @@ export default class OwnerEditFrom extends Component {
                             <Input 
                             name="birthday"
                             value={this.state.birthday}
-                            onChange={this.state.birthday}
+                            onChange={this.onChange}
                             />
                             <Tag color="cyan">text</Tag>
                             <Input 
@@ -195,9 +222,9 @@ export default class OwnerEditFrom extends Component {
                             onChange={this.onChange}
                             />
                             <Button 
-                            onClick={this.onSubmitEditOwner}
+                            onClick={this.state.action === "edit" ? this.onSubmitEditOwner : this.onSubmitAddOwner}
                             type="primary">
-                                Edit Owner
+                                {this.state.action}
                             </Button>
                         </Col>
                 </Row>

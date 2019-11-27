@@ -4,6 +4,7 @@ import { resumemeAll } from '../../../services/api'
 const { TextArea } = Input;
 export default class ResumeFrom extends Component {
     state = {
+        action: 'add',
         professional: '',
         experience: '',
         education: '',
@@ -15,13 +16,15 @@ export default class ResumeFrom extends Component {
     }
     onSetResumeEdit = async () => {
         const resp = await resumemeAll();
-        resp.code === 200 && this.setState({
-            professional: resp.data[0].professional,
-            experience: resp.data[0].experience,
-            education: resp.data[0].education,
-            activity: resp.data[0].activity,
-            id: resp.data[0].resumeid
-        })        
+        if (resp.code === 200 && resp.data[0] !== undefined) {
+            this.setState({
+                professional: resp.data[0].professional,
+                experience: resp.data[0].experience,
+                education: resp.data[0].education,
+                activity: resp.data[0].activity,
+                id: resp.data[0].resumeid
+            }) 
+        }
     }
     onSubmitEditResume = () => {
         const data = {
@@ -33,6 +36,15 @@ export default class ResumeFrom extends Component {
         }
         this.props.editResume(data);
     }
+    onSubmitAddResume = () => {
+        const data = {
+            professional: this.state.professional,
+            experience: this.state.experience,
+            education: this.state.education,
+            activity: this.state.activity,
+        }
+        this.props.addResume(data);
+    }
     onChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -42,7 +54,7 @@ export default class ResumeFrom extends Component {
         return (
             <div>
                 <Row>
-                <h1>REMUME EDIT</h1>
+                <h1>REMUME</h1>
                     <Col offset={4} span={16} style={{paddingBottom: '0.5%'}}>
                         <Tag color="cyan">Professional info</Tag>
                         <TextArea 
@@ -69,9 +81,9 @@ export default class ResumeFrom extends Component {
                         onChange={this.onChange}
                         />
                         <Button 
-                        onClick={this.onSubmitEditResume}
+                        onClick={this.state.action === "edit" ? this.onSubmitEditResume : this.onSubmitAddResume}
                         type="primary">
-                            Edit Resume
+                            {this.state.action}
                         </Button>
                     </Col>
                 </Row>

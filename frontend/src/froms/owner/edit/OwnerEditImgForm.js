@@ -13,11 +13,13 @@ class OwnerEditImgForm extends Component {
         this.onGetOwner();
     }
     onGetOwner = async () => {
-        const resp = await ownerAll();        
-        resp.code === 200 && this.setState({
+        const resp = await ownerAll();                
+        if (resp.code === 200 && resp.data[0] !== undefined) {
+          this.setState({
             picture: resp.data[0].picture,
             id: resp.data[0].ownerid
         })
+      }
     }
     beforeUpload = file => {
       const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';

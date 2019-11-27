@@ -8,7 +8,17 @@ import SkillFrom from '../../../../froms/owner/edit/SkillFrom'
 import LanguageFrom from '../../../../froms/owner/edit/LanguageFrom'
 import CardNextPage from '../../../../froms/owner/edit/CardNextPage'
 import OwnerEditImgForm from '../../../../froms/owner/edit/OwnerEditImgForm'
-import { ownerEdit, aboutmeEdit, resumemeEdit, skillEdit, languageEdit } from '../../../../services/api'
+import {  ownerEdit, 
+          aboutmeEdit, 
+          resumemeEdit, 
+          skillEdit, 
+          languageEdit,
+          ownerAdd,
+          aboutmeAdd,
+          resumemeAdd,
+          skillAdd,
+          languageAdd
+        } from '../../../../services/api'
 export default class OwnerEdit extends Component {
     onEditOwner = async (data) => {
         await ownerEdit(data); 
@@ -25,6 +35,21 @@ export default class OwnerEdit extends Component {
     onEditLanguage = async (data) => {
         await languageEdit(data);  
     }
+    onAddOwner = async (data) => {
+        await ownerAdd(data);
+    }
+    onAddAboutme = async (data) => {
+        await aboutmeAdd(data);
+    }
+    onAddResume = async (data) => {
+        await resumemeAdd(data);
+    }
+    onAddSkill = async (data) => {
+        await skillAdd(data);
+    }
+    onAddLanguage = async (data) => {
+        await languageAdd(data);
+    }
     render() {
         return (
             <div>
@@ -38,22 +63,27 @@ export default class OwnerEdit extends Component {
                     />
                     <OwnerEditFrom 
                     editOwnerEdit={this.onEditOwner}
+                    addOwner={this.onAddOwner}
                     />
                         <Divider />
                     <AboutMeFrom 
                     editAboutme={this.onEditAboutme}
+                    addAboutme={this.onAddAboutme}
                     />
                         <Divider />
                     <ResumeFrom 
                     editResume={this.onEditResume}
+                    addResume={this.onAddResume}
                     />
                         <Divider />
                     <SkillFrom 
                     editSkill={this.onEditSkill}
+                    addSkill={this.onAddSkill}
                     />
                         <Divider />
                     <LanguageFrom 
                     editLanguage={this.onEditLanguage}
+                    addLanguage={this.onAddLanguage}
                     />
                         <Divider />
                     </Col>
