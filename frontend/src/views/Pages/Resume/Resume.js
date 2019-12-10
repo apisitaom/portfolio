@@ -17,7 +17,7 @@ export default class Resume extends Component {
     }
     onGetResume = async () => {
         const resp = await resumemeAll();
-        this.setState({
+        resp.code === 200 && this.setState({
             activity: resp.data[0].activity,
             education: resp.data[0].education,
             experience: resp.data[0].experience,
@@ -26,19 +26,19 @@ export default class Resume extends Component {
     }
     onGetSkill = async () => {
         const resp = await skillAll();
-        this.setState({
+        resp.code === 200 && this.setState({
             skill: resp.data[0].skill
         })        
     }
     onGetLanguage = async () => {
         const resp = await languageAll();
-        this.setState({
+        resp.code === 200 && this.setState({
             language: resp.data[0].language    
         })
     }
     onGetAboutme = async () => {
         const resp = await aboutmeAll();
-        this.setState({
+        resp.code === 200 && this.setState({
             interest: resp.data[0].interest
         })
     }
