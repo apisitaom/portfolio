@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { Row, Col, Icon, Divider } from 'antd'
 import { ownerAll } from '../../services/api'
+// Mock Data
+import { github, facebook, email, phonenumber, ig } from '../../mock/Owner'
 export default class OwnerDetailFrom extends Component {
     state={
-        github: 'NOT HAVE',
-        facebook: 'NOT HAVE',
-        email: 'NOT HAVE',
-        phonnumber: 'NOT HAVE',
-        ig: 'NOT HAVE'
+        github: github,
+        facebook: facebook,
+        email: email,
+        phonnumber: phonenumber,
+        ig: ig
     }
     UNSAFE_componentWillMount () {
         this.onGetOwner();
@@ -23,9 +25,6 @@ export default class OwnerDetailFrom extends Component {
         })
     }
     render() {
-        const IconFont = Icon.createFromIconfontCN({
-            scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
-          });
         const iconStype = {
             fontSize: '300%',
             paddingLeft: '1%'
@@ -37,7 +36,7 @@ export default class OwnerDetailFrom extends Component {
                         <Icon style={iconStype} type="github" />
                         <Divider type="vertical" />
                         {this.state.github}
-                        <IconFont style={iconStype} type="icon-facebook" />
+                        <Icon style={iconStype} type="facebook" />
                         <Divider type="vertical" />
                         {this.state.facebook}
                         <Icon style={iconStype} type="wechat" />

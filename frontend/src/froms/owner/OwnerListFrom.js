@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Card, Row, Col } from 'antd'
 import { ownerAll } from '../../services/api'
+// Mock Data
+import { name, text, other } from '../../mock/Owner'
 export default class OwnerListFrom extends Component {
     state = {
-        name: 'NOT HAVE',
-        text: 'NOT HAVE',
-        other: 'NOT HAVE'
+        name: name,
+        text: text,
+        other: other
     }
     UNSAFE_componentWillMount () {
         this.onGetOwner();
@@ -51,7 +53,7 @@ export default class OwnerListFrom extends Component {
                         <h4 style={{fontSize:'600%', color:'#839192'}}>Hello,</h4>
                     </Col>
                     <Col offset ={4}>
-                        <h4 style={{fontSize:'180%', color:'#839192'}}> a little bit abount me</h4>
+                        <h4 style={{fontSize:'180%', color:'#839192'}}> a little bit about me</h4>
                     </Col>
                     <Col style={paddingStype}>
                         <Card.Grid style={gridStyle} onClick={() => this.onChangePageResume()} >MY RESUME</Card.Grid>

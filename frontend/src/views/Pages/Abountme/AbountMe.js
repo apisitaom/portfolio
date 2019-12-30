@@ -2,22 +2,24 @@ import React, { Component } from 'react'
 import { Row, Col, Divider, Tag, Descriptions } from 'antd'
 import TabFrom from '../../../froms/nav/TabFrom' 
 import { aboutmeAll, ownerAll } from '../../../services/api'
+// Mock Data
+import { aboutme, address, family, hobby, interest, name, age, gender, github, gitlab, ig, phonnumber, email} from '../../../mock/Owner'
 export default class AbountMe extends Component {
     state={
-        aboutme: 'NOT HAVE',
-        address: 'NOT HAVE',
-        family: 'NOT HAVE',
-        hobby: 'NOT HAVE',
-        interest: 'NOT HAVE',
+        aboutme: aboutme,
+        address: address,
+        family: family,
+        hobby: hobby,
+        interest: interest,
         //OWNER 
-        name: 'NOT HAVE',
-        age: 'NOT HAVE',
-        gender: 'NOT HAVE',
-        github: 'NOT HAVE',
-        gitlab: 'NOT HAVE',
-        ig: 'NOT HAVE',
-        phonnumber: 'NOT HAVE',
-        email: 'NOT HAVE'
+        name: name,
+        age: age,
+        gender: gender,
+        github: github,
+        gitlab: gitlab,
+        ig: ig,
+        phonnumber: phonnumber,
+        email: email,
     }
     UNSAFE_componentWillMount () {
         this.onGetAboutMe();

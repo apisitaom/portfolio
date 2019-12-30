@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import { List, Avatar, Icon } from 'antd';
 import star from '../../assets/img/star.png'
 import { albumAll, ownerAll } from '../../services/api'
-import { imagurl } from '../../services/config/apiurl'
+// import { imagurl } from '../../services/config/apiurl'
+// Mock Data 
+import { listData } from '../../mock/Product'
+import { name } from '../../mock/Owner'
 export default class OwnerAlbumFrom extends Component {
   state={
-    name: '',
-    album: [],
+    name: name,
+    album: listData,
   }  
   UNSAFE_componentWillMount () {
     this.onGetOwner();
@@ -60,7 +63,7 @@ export default class OwnerAlbumFrom extends Component {
                       <img
                         width={272}
                         alt="logo"
-                        src={`${imagurl}${item.album}`}
+                        src={item.album}
                         />
                     }
                   >

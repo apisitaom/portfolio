@@ -2,12 +2,17 @@ import React, { Component } from 'react'
 import { Row, Col, Divider, Tag, Icon } from 'antd'
 import TabFrom from '../../../froms/nav/TabFrom'
 import { resumemeAll, languageAll, skillAll, aboutmeAll } from '../../../services/api'
+// Mock Data
+import { professional, experience, education, activity, skill, language, interest } from '../../../mock/Resume'
 export default class Resume extends Component {
     state={
-        activity: 'NOT HAVE',
-        education: 'NOT HAVE',
-        experience: 'NOT HAVE',
-        professional: 'NOT HAVE',
+        professional: professional,
+        experience: experience,
+        education: education,
+        activity: activity,
+        skill: skill,
+        language: language,
+        interest: interest
     }
     UNSAFE_componentWillMount () {
         this.onGetResume();

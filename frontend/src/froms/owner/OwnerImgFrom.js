@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Image, Col } from 'react-bootstrap'
 import { ownerAll } from '../../services/api'
 import { imagurl } from '../../services/config/apiurl'
+// Mock Data
+import  profile from '../../assets/img/pro.jpg'
 export default class OwnerImgFrom extends Component {
     state={
         imgName: ''
@@ -19,7 +21,7 @@ export default class OwnerImgFrom extends Component {
         return (
             <div>
                 <Col>
-                   <Image style={{width:'85%', height:'auto'}} src={this.state.imgName} roundedCircle />
+                   <Image style={{width:'85%', height:'auto'}} src={profile} roundedCircle />
                 </Col>
             </div>
         )
