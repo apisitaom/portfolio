@@ -27,6 +27,22 @@ listData.push({
 })
 
 listData.push({
+    name:`Pre-Order (e-commerce)`,
+    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    detail:`Frontend: React | Backend: Express.js | Database: PostgreSQL`,
+    content:`Pre-Order products | when internship ISAAC technology company | five members in team | same to web application shopping online`,
+    album:`https://user-images.githubusercontent.com/42701669/72354664-b85bfb00-3718-11ea-9f86-fa63225fa125.png`
+})
+
+listData.push({
+    name:`AED`,
+    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    detail:`Frontend: React | Backend: Express.js | Database: PostgreSQL and Sequelize query`,
+    content:`AED products | when internship ISAAC technology company acident heart (เครื่องปั๊มหัวใจฉุกเฉิน "ตู้ AED")`,
+    album:`https://user-images.githubusercontent.com/42701669/72354440-5ac7ae80-3718-11ea-9fe0-43d59c62f864.png`
+})
+
+listData.push({
     name:`Place Travel (Mobile Application)`,
     url:`https://github.com/apisitaom/placetravel`,
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -34,5 +50,4 @@ listData.push({
     content:`Place Travel imprvoe for same pantip but better than is Place Travel focus for sheare Travel/Moment `,
     album:`https://user-images.githubusercontent.com/42701669/71491040-e5776500-2860-11ea-819c-f9b6cc29fd8b.png`
 })
-
 
