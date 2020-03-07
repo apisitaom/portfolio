@@ -12,7 +12,7 @@ export default class Result extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col offset={2} span={20}><p style={{fontSize: '450%'}}>PRODUCTS</p></Col>
+                    <Col offset={2} span={20}><p style={{fontSize: '150%'}}>PRODUCTS</p></Col>
                     <Col offset={2} span={20}>
                         <OwnerAlbumFrom />
                     </Col>

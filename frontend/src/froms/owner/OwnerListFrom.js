@@ -56,9 +56,9 @@ export default class OwnerListFrom extends Component {
                         <h4 style={{fontSize:'180%', color:'#839192'}}> a little bit about me</h4>
                     </Col>
                     <Col style={paddingStype}>
-                        <Card.Grid style={gridStyle} onClick={() => this.onChangePageResume()} >MY RESUME</Card.Grid>
-                        <Card.Grid style={gridStyle} onClick={() => this.onChangePageAbountMe()} >ABOUT ME</Card.Grid>
-                        <Card.Grid style={gridStyle} onClick={() => this.onChangePageResult()} >PRODUCTS</Card.Grid>
+                        <Card.Grid style={gridStyle} onClick={() => this.onChangePageResume()} bordered={true}>MY RESUME</Card.Grid>
+                        <Card.Grid style={gridStyle} onClick={() => this.onChangePageAbountMe()} bordered={true}>ABOUT ME</Card.Grid>
+                        <Card.Grid style={gridStyle} onClick={() => this.onChangePageResult()} bordered={true}>PRODUCT</Card.Grid>
                     </Col>
                     <Col offset={2} span={20} style={paddingStype}>
                         <h5>{this.state.other}</h5>
